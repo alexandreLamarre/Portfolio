@@ -1,5 +1,5 @@
 import './App.css';
-import RegularPolytope from "./components/regularpolytope.js"
+import RegularPolytope from "./components/3d/RegularPolytope";
 
 function App() {
   return (

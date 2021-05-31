@@ -96,7 +96,7 @@ class RegularPolytope extends React.Component{
             const debugObj = {};
             // debugObj.renderer = this.state.renderer;
             // debugObj.scene = this.state.scene;
-            debugObj.torus = this.state.objs.torus;
+            // debugObj.torus = this.state.objs.torus;
             this.debug_animate(debugObj);
             this.setState({objs: objs});
             this.frameId = window.requestAnimationFrame(() => this.animate());

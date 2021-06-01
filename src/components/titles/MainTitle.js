@@ -12,6 +12,7 @@ class MainTitle extends React.Component{
         }
     }
 
+
     componentDidMount(){
         const border = CSSRulePlugin.getRule('.content:before');
         const mainTitle = document.getElementById("mainTitle");
@@ -21,8 +22,8 @@ class MainTitle extends React.Component{
         const tl = gsap.timeline();
 
         tl.from(border, {delay: 0.5, duration: 3, cssRule: {scaleX: 0}});
-        tl.to(mainTitle, {duration: 3, clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)', y: '10px'}, "-=3" );
-        tl.to(subTitle, {duration: 6, clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)', y: '10px'}, "-=2" );
+        tl.to(mainTitle, {duration: 2, clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)', y: '10px'}, "-=2" );
+        tl.to(subTitle, {duration: 6, clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)', y: '10px'}, "-=1" );
     }
 
     render(){

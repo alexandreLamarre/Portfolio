@@ -1,5 +1,5 @@
 import './App.css';
-import RegularPolytope from "./components/3d/RegularPolytope";
+import RegularPolytope from "./components/3d/torus";
 import MainTitle from "./components/titles";
 
 function App() {

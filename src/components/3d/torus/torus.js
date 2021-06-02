@@ -4,7 +4,7 @@ import React from "react";
 
 var FRAME_DEBUG = 0;
 
-class RegularPolytope extends React.Component{
+class Torus extends React.Component{
     /**
      * Initializes a component that will contain a canvas with a regular 4d polytope
      * animation.
@@ -217,4 +217,4 @@ class RegularPolytope extends React.Component{
     }
 } 
 
-export default RegularPolytope;
+export default Torus;

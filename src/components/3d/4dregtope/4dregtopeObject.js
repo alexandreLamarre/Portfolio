@@ -1,9 +1,9 @@
 /**
  * Class that represents the data & math behind 
  * the last 4d regular polytope (no analogous polyope of its kind in lower dimensions)
- * i.e. 24 cell : 
+ * i.e. 24 cell : https://en.wikipedia.org/wiki/24-cell
  */
-class RegularPolytope4D{
+class OctaPlex{
     /**
      * Intializes 4d coordinates of the last (unique to 4d) 4d regular polytope
      *  in the form of a float32 array
@@ -15,10 +15,11 @@ class RegularPolytope4D{
         
         //TODO: set coords and rotation appropriately
         // (default rotation should be identity)
-        const positiveOrigin = [];
-        const negativeOrigin = [];
+        const positiveOrigin = [1, 1, 0, 0];
+        const negativeOrigin = [-1,-1, 0 ,0];
 
-        this.points = fastPermutation(positiveOrigin).concat(fastPermutation(negativeOrigin));
+        this.points = fastPermutation(positiveOrigin, positiveOrigin.length).concat(
+            fastPermutation(negativeOrigin, negativeOrigin.length));
     }
 
     /**
@@ -59,14 +60,59 @@ class RegularPolytope4D{
     }
 }
 
-export default RegularPolytope4D;
+export default OctaPlex;
 
 /**
- * Helper function to generate permutations of given array
+ * Helper function to generate permutations of given array.
+ * Uses Heap's Algorithm: https://en.wikipedia.org/wiki/Heap%27s_algorithm
  * @param {*} arr the array to permute
+ * @param n the length of the array to permute
  */
-function fastPermutation(arr){
+export function fastPermutation(arr, n){
     //TODO: implement fast permutation helper method to generate the vertex coords of polytope
-    const perms = arr;
+    if(isNaN(n)) throw new Error("permutations expect an input integer, instead got : ", n);
+    let perms = [];
+
+    generate(arr, n, perms);
+    
     return perms;
+}
+
+/**
+ * Helper that generates the permutations according to Heap's Algorithm
+ * @param {Array} arr 
+ * @param {Number} n 
+ * @param {Array} perms 
+ */
+export function generate(arr, n, perms){
+    if(n === 1){
+        //OUTPUT arr
+        perms.push(arr.slice());
+        perms = perms.concat([arr.slice()]);
+        console.log(perms);
+    }
+    else{
+        fastPermutation(arr , n -1);
+
+        for(let i = 0; i < n -1; i ++){
+            if(n % 2 === 0){
+                swap(arr, i, n - 1);
+            } else{
+                swap(arr, 0, n - 1);
+            }
+            fastPermutation(arr, n-1);
+        }
+    }
+}
+
+/**
+ * Helper function to swap two indices i and j in an array
+ * @param {*} arr : the array to perform the swap on
+ * @param {Number} i : the first index to swap
+ * @param {Number} j : the second index to swap
+ */
+export function swap(arr, i,j){
+    const temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
 }

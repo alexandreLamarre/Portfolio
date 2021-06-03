@@ -1,5 +1,5 @@
 import React from "react";
-import RegularPolytope4D from "./4dregtopeObject.js";
+import OctaPlex from "./4dregtopeObject.js";
 
 /**
  * The component class for the 24-cell regular 4d polytope.
@@ -14,7 +14,7 @@ class RegularPolytope4DComponent extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            polytope: new RegularPolytope4D(),
+            polytope: new OctaPlex(),
         }
     }
 

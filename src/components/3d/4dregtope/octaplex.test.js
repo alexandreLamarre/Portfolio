@@ -1,4 +1,4 @@
-import {fastPermutation, hashArray, swap} from "./4dregtopeObject";
+import {fastPermutation, hashArray, swap} from "./Octaplex.js";
 
 test("swap helper function tests", () => {
     let arr = [1,2,3,4,5,6,7];
@@ -82,4 +82,5 @@ test("permutation helper function tests", () => {
     expect(points).toContainEqual([0,0,-1,1]);
     expect(points).toContainEqual([-1,0,0,1]);
     
-})
+});
+

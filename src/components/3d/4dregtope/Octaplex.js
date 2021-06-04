@@ -11,7 +11,18 @@ class OctaPlex{
      */
     constructor(){
         this.coords = new Float32Array(24*4);
-        this.rotation = new Float32Array(16);
+        this.leftIsoclinic = [
+            [1, 0, 0, 0],
+            [0, 1, 0, 0],
+            [0, 0, 1, 0],
+            [0, 0, 0, 1],
+        ];
+        this.rightIsoclinic = [
+            [1, 0, 0, 0],
+            [0, 1, 0, 0],
+            [0, 0, 0, 1],
+            [0, 0, 0, 1],
+        ];
         
         //TODO: set coords and rotation appropriately
         // (default rotation should be identity)
@@ -28,15 +39,46 @@ class OctaPlex{
                 this.hash.add(identifier);
             }
         }
-        
+        this.points = points;
     }
 
     /**
-     * Gets the general rotation matrix of a 4d object
-     * based on input params
+     * https://en.wikipedia.org/wiki/Rotations_in_4-dimensional_Euclidean_space
+     * 
+     * Sets the general rotation matrices of double left-right isoclinic rotations in 4D
+     * @param {*} a param in left isoclinic rotation matrix
+     * @param {*} b param in left isoclinic rotation matrix
+     * @param {*} c param in left isoclinic rotation matrix
+     * @param {*} d param in left isoclinic rotation matrix
+     * @param {*} p param in right isoclinic rotation matrix
+     * @param {*} q param in right isoclinic rotation matrix
+     * @param {*} r param in right isoclinic rotation matrix
+     * @param {*} s param in right isoclinic rotation matrix
      */
-    setGeneralRotation4D(){
-        //TODO: return a general 4d rotation matrix with appropriate input params.
+    setlRotationIsoclinic4D(a, b, c, d, p, q, r , s){
+        //TODO: Clamp these values according to the following equations
+        // a^2 + b^2 + c^2 + d^2 = 1;
+        // p^2 + q^2 + r^2 + s^2 = 1;
+        const leftIsoclinic = [
+            [a, -b,-c,-d],
+            [b, a, -d, c],
+            [c, d, a, -b],
+            [d, -c, b, a],
+        ];
+        const rightIsoclinic = [
+            [p, -q,-r,-s],
+            [q, p, s, -r],
+            [r, -s, p, q],
+            [s, r, -q, p],
+        ];
+
+        this.leftIsoclinic = leftIsoclinic;
+        this.rightIsoclinic = rightIsoclinic;
+    }
+
+    setCayleyRotation4D(){
+        //TODO: implement 4d rotation matrix by generating "rotation" eigenvalues using the Cayley method
+        
     }
 
     /**

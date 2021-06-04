@@ -1,7 +1,6 @@
 import * as THREE from "three";
 import React from "react";
 
-
 var FRAME_DEBUG = 0;
 
 class Torus extends React.Component{
@@ -38,7 +37,7 @@ class Torus extends React.Component{
         const h = this.height();
         this.canvas.current.width = w;
         this.canvas.current.height = h;
-        
+
         const {renderer, scene, camera, objs, clock} = this.createScene(w,h);
         window.addEventListener("resize", this.resize);
         document.addEventListener("mousemove", this.updateMouse)
@@ -176,7 +175,6 @@ class Torus extends React.Component{
         if(this.canvas.current !== null){
             const objs = this.state.objs;
             objs.torus.rotation.y = .5 * this.state.clock.getElapsedTime();
-            console.log(this.state.clock.getElapsedTime());
 
             objs.Particles.rotation.y = (0.28 * this.state.mouseX)/(window.innerHeight * 2) * 7.5;  
             objs.Particles.rotation.x = (0.28 * this.state.mouseY)/(window.innerWidth * 2) * 7.5;

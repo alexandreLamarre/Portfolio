@@ -15,11 +15,20 @@ class OctaPlex{
         
         //TODO: set coords and rotation appropriately
         // (default rotation should be identity)
-        const positiveOrigin = [1, 1, 0, 0];
-        const negativeOrigin = [-1,-1, 0 ,0];
 
-        this.points = fastPermutation(positiveOrigin, positiveOrigin.length).concat(
-            fastPermutation(negativeOrigin, negativeOrigin.length));
+        const points = [];
+        const origins = [[1, 1, 0, 0], [-1, -1, 0, 0], [1, -1, 0, 0]];
+        this.hash = new Set();
+        for(let arr in origins){
+            for(let p of fastPermutation(arr)){
+                let identifier = hashArray(p);
+                if(!this.hash.has(identifier)){
+                    points.push(p);
+                }
+                this.hash.add(identifier);
+            }
+        }
+        
     }
 
     /**
@@ -68,14 +77,31 @@ export default OctaPlex;
  * @param {*} arr the array to permute
  * @param n the length of the array to permute
  */
-export function fastPermutation(arr, n){
-    //TODO: implement fast permutation helper method to generate the vertex coords of polytope
+export function* fastPermutation(arr, n){
     if(isNaN(n)) throw new Error("permutations expect an input integer, instead got : ", n);
-    let perms = [];
-
-    generate(arr, n, perms);
     
-    return perms;
+    function* generate(arr, n){
+        if(n === 1){
+            yield arr.slice();
+        }
+        else{
+            yield * generate(arr, n -1);
+
+            for(let i = 0; i < n -1; i++){
+                if(n % 2 === 0){
+                    swap(arr, i , n-1);
+                }
+                else{
+                    swap(arr, 0, n-1);
+                }
+                yield * generate(arr, n-1);
+            }
+        }
+    }
+
+    for(let i of generate(arr,4)){
+        yield i;
+    }
 }
 
 /**
@@ -84,12 +110,10 @@ export function fastPermutation(arr, n){
  * @param {Number} n 
  * @param {Array} perms 
  */
-export function generate(arr, n, perms){
+export function* generate(arr, n){
     if(n === 1){
         //OUTPUT arr
-        perms.push(arr.slice());
-        perms = perms.concat([arr.slice()]);
-        console.log(perms);
+        yield arr.slice();
     }
     else{
         fastPermutation(arr , n -1);
@@ -115,4 +139,26 @@ export function swap(arr, i,j){
     const temp = arr[i];
     arr[i] = arr[j];
     arr[j] = temp;
+}
+
+/**
+ * Hashes 4d coord arrays as integers for easy use in sets
+ * @param {Array} arr 
+ * @returns 
+ */
+export function hashArray(arr){
+    let hashNum = 0;
+    let cur = 1;
+    let curOffset = Math.pow(2,5);
+    for(let i = 0; i < arr.length; i++){
+        if(arr[i] > 0){
+            hashNum += arr[i]*cur;
+        }else {
+            hashNum += arr[i]*curOffset;
+        }
+        
+        cur *= 2;
+        curOffset *=2;
+    }
+    return hashNum;
 }

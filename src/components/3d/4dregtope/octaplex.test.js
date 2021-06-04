@@ -1,4 +1,5 @@
-import {fastPermutation, hashArray, swap} from "./Octaplex.js";
+import {fastPermutation, hashArray, swap, clamp4} from "./Octaplex.js";
+import OctaPlex from "./Octaplex.js";
 
 test("swap helper function tests", () => {
     let arr = [1,2,3,4,5,6,7];
@@ -84,3 +85,23 @@ test("permutation helper function tests", () => {
     
 });
 
+test("clamp4 helper function tests", () => {
+    let a = 1; let b = 2; let c = 3; let d = 4;
+    expect(a*a + b*b + c*c + d*d < 1 + 0.005 && a*a + b*b + c*c + d*d > 1 -0.005).toBe(false);
+    [a,b,c,d] = clamp4(a, b, c, d);
+    let res = a * a + b* b + c * c + d * d;
+    expect(res > 1 - 0.005 && res < 1 + 0.005).toBe(true);
+
+
+    a = -5; b = 7; c = 20; d = -15;
+    res = a * a + b* b + c * c + d * d;
+    expect(res > 1 - 0.005 && res < 1 + 0.005).toBe(false);
+
+    [a, b, c, d] = clamp4(a, b, c ,d);
+    res = a * a + b* b + c * c + d * d;
+    expect(res > 1 - 0.005 && res < 1 + 0.005).toBe(true);
+});
+
+test("Octaplex constructor", () =>{
+
+});

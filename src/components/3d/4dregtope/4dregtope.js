@@ -1,5 +1,5 @@
 import React from "react";
-import OctaPlex from "./4dregtopeObject.js";
+import OctaPlex from "./Octaplex.js";
 
 /**
  * The component class for the 24-cell regular 4d polytope.

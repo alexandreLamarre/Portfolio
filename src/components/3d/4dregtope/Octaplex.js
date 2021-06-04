@@ -56,9 +56,8 @@ class OctaPlex{
      * @param {*} s param in right isoclinic rotation matrix
      */
     setlRotationIsoclinic4D(a, b, c, d, p, q, r , s){
-        //TODO: Clamp these values according to the following equations
-        // a^2 + b^2 + c^2 + d^2 = 1;
-        // p^2 + q^2 + r^2 + s^2 = 1;
+        [a, b, c, d] = clamp4(a, b, c , d);
+        [p, q, r, s] = clamp4(p, q, r, s);
         const leftIsoclinic = [
             [a, -b,-c,-d],
             [b, a, -d, c],
@@ -203,4 +202,23 @@ export function hashArray(arr){
         curOffset *=2;
     }
     return hashNum;
+}
+
+/**
+ * 
+ * @param {/**
+ * Clamp parameters to satisfy:
+ * a^2 + b^2 + c^2 + d^2 = 1
+ * 
+ * @param {*} a :parameter of the equation
+ * @param {*} b :parameter of the equation
+ * @param {*} c :parameter of the equation
+ * @param {*} d :parameter of the equation
+ * @returns {[a,b,c,d]} 
+ */
+export function clamp4(a, b, c, d){
+    const total = Math.sqrt(a * a + b * b + c * c + d * d);
+
+    a /= total; b /= total; c /= total; d /= total;
+    return [a,b,c,d];
 }

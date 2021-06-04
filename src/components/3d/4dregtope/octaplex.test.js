@@ -103,5 +103,45 @@ test("clamp4 helper function tests", () => {
 });
 
 test("Octaplex constructor", () =>{
+    const octa = new OctaPlex();
 
+    expect(octa.points.length).toBe(24);
+    expect(octa.points).toContainEqual([1,1,0,0]);
+    expect(octa.points).toContainEqual([1,0,1,0]);
+    expect(octa.points).toContainEqual([0,1,1,0]);
+    expect(octa.points).toContainEqual([0,1,0,1]);
+    expect(octa.points).toContainEqual([0,0,1,1]);
+    expect(octa.points).toContainEqual([1,0,0,1]);
+    expect(octa.points).toContainEqual([-1,-1,0,0]);
+    expect(octa.points).toContainEqual([-1,0,-1,0]);
+    expect(octa.points).toContainEqual([0,-1,-1,0]);
+    expect(octa.points).toContainEqual([0,-1,0,-1]);
+    expect(octa.points).toContainEqual([0,0,-1,-1]);
+    expect(octa.points).toContainEqual([-1,0,0,-1]);
+    expect(octa.points).toContainEqual([1,-1,0,0]);
+    expect(octa.points).toContainEqual([1,0,-1,0]);
+    expect(octa.points).toContainEqual([0,1,-1,0]);
+    expect(octa.points).toContainEqual([0,1,0,-1]);
+    expect(octa.points).toContainEqual([0,0,1,-1]);
+    expect(octa.points).toContainEqual([1,0,0,-1]);
+    expect(octa.points).toContainEqual([-1,1,0,0]);
+    expect(octa.points).toContainEqual([-1,0,1,0]);
+    expect(octa.points).toContainEqual([0,-1,1,0]);
+    expect(octa.points).toContainEqual([0,-1,0,1]);
+    expect(octa.points).toContainEqual([0,0,-1,1]);
+    expect(octa.points).toContainEqual([-1,0,0,1]);
+
+
+    //make sure left & right isoclinic matrices set to identity by default
+    expect(octa.leftIsoclinic.length).toBe(4);
+    expect(octa.leftIsoclinic).toContainEqual([1, 0, 0, 0]);
+    expect(octa.leftIsoclinic).toContainEqual([0, 1, 0, 0]);
+    expect(octa.leftIsoclinic).toContainEqual([0, 0, 1, 0]);
+    expect(octa.leftIsoclinic).toContainEqual([0, 0, 0, 1]);
+
+    expect(octa.rightIsoclinic.length).toBe(4);
+    expect(octa.rightIsoclinic).toContainEqual([1, 0, 0, 0]);
+    expect(octa.rightIsoclinic).toContainEqual([0, 1, 0, 0]);
+    expect(octa.rightIsoclinic).toContainEqual([0, 0, 1, 0]);
+    expect(octa.rightIsoclinic).toContainEqual([0, 0, 0, 1]);
 });

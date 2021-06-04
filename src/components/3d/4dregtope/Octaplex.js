@@ -20,7 +20,7 @@ class OctaPlex{
         this.rightIsoclinic = [
             [1, 0, 0, 0],
             [0, 1, 0, 0],
-            [0, 0, 0, 1],
+            [0, 0, 1, 0],
             [0, 0, 0, 1],
         ];
         
@@ -28,10 +28,11 @@ class OctaPlex{
         // (default rotation should be identity)
 
         const points = [];
-        const origins = [[1, 1, 0, 0], [-1, -1, 0, 0], [1, -1, 0, 0]];
+        let origins = [[1, 1, 0, 0], [-1, -1, 0, 0], [1, -1, 0, 0]];
         this.hash = new Set();
-        for(let arr in origins){
-            for(let p of fastPermutation(arr)){
+        for(let i = 0; i < origins.length; i++){
+            let arr = origins[i];
+            for(let p of fastPermutation(arr, arr.length)){
                 let identifier = hashArray(p);
                 if(!this.hash.has(identifier)){
                     points.push(p);
@@ -75,9 +76,13 @@ class OctaPlex{
         this.rightIsoclinic = rightIsoclinic;
     }
 
+    /**
+     * 
+     */
     setCayleyRotation4D(){
         //TODO: implement 4d rotation matrix by generating "rotation" eigenvalues using the Cayley method
-        
+
+
     }
 
     /**
@@ -85,7 +90,9 @@ class OctaPlex{
      * Rotation type is determined by the object's currently set rotation matrix
      */
     applyRotation(){
-        //TODO: rotate the 24 cell's coordinates in place 
+        for(let i = 0; i < this.points.length; i++){
+            console.log(this.points[i]);
+        }
     }
 
     /**
@@ -177,7 +184,7 @@ export function* generate(arr, n){
  * @param {Number} j : the second index to swap
  */
 export function swap(arr, i,j){
-    const temp = arr[i];
+    let temp = arr[i];
     arr[i] = arr[j];
     arr[j] = temp;
 }

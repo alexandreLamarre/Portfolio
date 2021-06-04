@@ -142,7 +142,7 @@ export function swap(arr, i,j){
 }
 
 /**
- * Hashes 4d coord arrays as integers for easy use in sets
+ * Hashes 4d ternary coord arrays as integers for easy use in sets
  * @param {Array} arr 
  * @returns 
  */
@@ -151,10 +151,10 @@ export function hashArray(arr){
     let cur = 1;
     let curOffset = Math.pow(2,5);
     for(let i = 0; i < arr.length; i++){
-        if(arr[i] > 0){
+        if(arr[i] >= 0){
             hashNum += arr[i]*cur;
         }else {
-            hashNum += arr[i]*curOffset;
+            hashNum -= arr[i]*curOffset;
         }
         
         cur *= 2;

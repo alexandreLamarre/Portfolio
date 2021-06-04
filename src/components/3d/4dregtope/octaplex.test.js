@@ -1,11 +1,26 @@
 import {fastPermutation, hashArray, swap} from "./4dregtopeObject";
 
 test("swap helper function tests", () => {
+    let arr = [1,2,3,4,5,6,7];
+    swap(arr, 0, 6);
+    expect(arr[0]).toBe(7);
+    expect(arr[6]).toBe(1);
 
+    swap(arr, 0, 3);
+    expect(arr[0]).toBe(4);
+    expect(arr[3]).toBe(7);
 });
 
 test("hashArray helper function tests", () => {
-
+    //Assumes 4d arrays as input
+    let arr = [1, 1, 1, 1];
+    expect(hashArray(arr)).toBe(1+2+4+8);
+    arr = [-1, 0, 0, 0];
+    expect(hashArray(arr)).toBe(32);
+    arr = [1, 1, 1, -1];
+    expect(hashArray(arr)).toBe(32*2*2*2 + 1 + 2 + 4);
+    arr = [1,-1,-1,1];
+    expect(hashArray(arr)).toBe(1 + 8 + 32*2 + 32*4);
 });
 
 test("permutation helper function tests", () => {
@@ -66,6 +81,5 @@ test("permutation helper function tests", () => {
     expect(points).toContainEqual([0,-1,0,1]);
     expect(points).toContainEqual([0,0,-1,1]);
     expect(points).toContainEqual([-1,0,0,1]);
-    console.log(points);
     
 })

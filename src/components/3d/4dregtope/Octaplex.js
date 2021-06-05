@@ -23,6 +23,12 @@ class OctaPlex{
             [0, 0, 1, 0],
             [0, 0, 0, 1],
         ];
+        this.isoclinicRotation = [
+            [1, 0, 0, 0],
+            [0, 1, 0, 0],
+            [0, 0, 1, 0],
+            [0, 0, 0, 1],
+        ]
         
         //TODO: set coords and rotation appropriately
         // (default rotation should be identity)
@@ -74,6 +80,7 @@ class OctaPlex{
 
         this.leftIsoclinic = leftIsoclinic;
         this.rightIsoclinic = rightIsoclinic;
+        this.isoclinicRotation = multiplyMatrix(leftIsoclinic, rightIsoclinic);
     }
 
     /**
@@ -228,4 +235,28 @@ export function clamp4(a, b, c, d){
 
     a /= total; b /= total; c /= total; d /= total;
     return [a,b,c,d];
+}
+
+/**
+ * Multiply two matrices
+ * @param {Array[Array]} mat1 
+ * @param {Array[Array]} mat2 
+ * @returns Array[Array] multiplied matrix
+ */
+export function multiplyMatrix(mat1, mat2){
+    if(mat1.length !== mat2.length) throw new Error(" Expected matrix dimensions to match ");
+    let res = [];
+    const len = mat1.length;
+    for(let i = 0; i < len; i++){
+        let resRow = [];
+        for(let j = 0; j < len; j ++){
+            let sum = 0;
+            for(let k = 0; k < len; k++){
+                sum += mat1[i][k] * mat2[k][j];
+            }
+            resRow.push(sum)
+        }
+        res.push(resRow);
+    }
+    return res;
 }

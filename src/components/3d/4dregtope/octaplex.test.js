@@ -1,4 +1,4 @@
-import {fastPermutation, hashArray, swap, clamp4} from "./Octaplex.js";
+import {fastPermutation, hashArray, swap, clamp4, multiplyMatrix} from "./Octaplex.js";
 import OctaPlex from "./Octaplex.js";
 
 test("swap helper function tests", () => {
@@ -100,6 +100,22 @@ test("clamp4 helper function tests", () => {
     [a, b, c, d] = clamp4(a, b, c ,d);
     res = a * a + b* b + c * c + d * d;
     expect(res > 1 - 0.005 && res < 1 + 0.005).toBe(true);
+});
+
+test("multiply matrix helper function tests", () => {
+    const mat1 = [[1, 0, 0], [0, 1, 0], [0, 0, 1]];
+    const mat2 = [[2, 3, 4], [4, 5, 6], [7, 8, 9]];
+
+    expect(multiplyMatrix(mat1, mat2)[0]).toEqual(mat2[0]);
+    expect(multiplyMatrix(mat1, mat2)[1]).toEqual(mat2[1]);
+    expect(multiplyMatrix(mat1, mat2)[2]).toEqual(mat2[2]);
+
+    const mat3 = [[17,4], [17,16]];
+    const mat4 = [[9, 2], [7, 1]];
+    const res = [[181, 38], [265, 50]];
+    expect(multiplyMatrix(mat3, mat4)[0]).toEqual(res[0]);
+    expect(multiplyMatrix(mat3, mat4)[1]).toEqual(res[1]);
+
 });
 
 test("Octaplex constructor", () =>{

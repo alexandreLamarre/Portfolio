@@ -33,6 +33,7 @@ function Icosahedron(props){
         // mesh.current.rotation.y = a;
         // mesh.current.rotation.z = a;
     });
+
     return(
             <mesh
             {...props} 
@@ -47,7 +48,6 @@ function Icosahedron(props){
                         normalMap={normalMap}
                         roughnessMap={roughnessMap}
                         aoMap={aoMap}
-        />
                     />
             </mesh>
     );

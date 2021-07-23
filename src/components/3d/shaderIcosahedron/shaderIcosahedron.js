@@ -5,7 +5,7 @@ import { TextureLoader } from "three/src/loaders/TextureLoader";
 import {shaderMaterial} from "@react-three/drei";
 import glsl from "babel-plugin-glsl/macro";
 import * as THREE from "three";
-import { getCentroid } from './helpers';
+import { getCentroid, getRandomAxis } from './helpers';
 
 /**
  * For basic introduction to shaders and using it in react-three-fiber, I recommend 
@@ -20,39 +20,50 @@ const IcosahedronShaderMaterial = shaderMaterial(
     },
     //Vertex shader
     glsl`
+    //vertex uniforms
+    uniform float uTime;
+
+    //vertex attributes
     attribute vec3 centroidBuffer;
-    // attribute vec3 axis;
-    // attribute float offset;
+    attribute vec3 axis;
+    attribute float offset;
+    
+    //vertex varying
     varying vec2 vUv;
     varying vec3 vNormal;
     varying vec3 eyeVector;
     float PI = 3.141592653589793238;
 
-    // mat4 rotationMatrix(vec3 axis, float angle) {
-    //     axis = normalize(axis);
-    //     float s = sin(angle);
-    //     float c = cos(angle);
-    //     float oc = 1.0 - c;
+    mat4 rotationMatrix(vec3 axis, float angle) {
+        axis = normalize(axis);
+        float s = sin(angle);
+        float c = cos(angle);
+        float oc = 1.0 - c;
         
-    //     return mat4(oc * axis.x * axis.x + c,           oc * axis.x * axis.y - axis.z * s,  oc * axis.z * axis.x + axis.y * s,  0.0,
-    //                 oc * axis.x * axis.y + axis.z * s,  oc * axis.y * axis.y + c,           oc * axis.y * axis.z - axis.x * s,  0.0,
-    //                 oc * axis.z * axis.x - axis.y * s,  oc * axis.y * axis.z + axis.x * s,  oc * axis.z * axis.z + c,           0.0,
-    //                 0.0,                                0.0,                                0.0,                                1.0);
-    // }
+        return mat4(oc * axis.x * axis.x + c,           oc * axis.x * axis.y - axis.z * s,  oc * axis.z * axis.x + axis.y * s,  0.0,
+                    oc * axis.x * axis.y + axis.z * s,  oc * axis.y * axis.y + c,           oc * axis.y * axis.z - axis.x * s,  0.0,
+                    oc * axis.z * axis.x - axis.y * s,  oc * axis.y * axis.z + axis.x * s,  oc * axis.z * axis.z + c,           0.0,
+                    0.0,                                0.0,                                0.0,                                1.0);
+    }
     
-    // vec3 rotate(vec3 v, vec3 axis, float angle) {
-    //   mat4 m = rotationMatrix(axis, angle);
-    //   return (m * vec4(v, 1.0)).xyz;
-    // }
+    vec3 rotate(vec3 v, vec3 axis, float angle) {
+        mat4 m = rotationMatrix(axis, angle);
+        return (m * vec4(v, 1.0)).xyz;
+    }
 
     void main() {
+        float vTemp =  1. - ((centroidBuffer.x + centroidBuffer.y)*0.5 + 1.)/2.;
+        float tProgress = max(0.0, (uTime - vTemp*0.4)/0.6);
+
+        vec3 newnormal = rotate(normal,axis,tProgress*(3. + offset*10.));
+
         vUv = uv;
-        vNormal = normalize(normalMatrix*normal);
+        vNormal = normal;
         vec3 newPosition = position;
-        newPosition += newPosition + centroidBuffer*3.; //(tProgress)*(3. + offset*7.);
-        //eye vector calculation
         vec4 worldPosition = modelMatrix * vec4(newPosition, 1.0);
+        //eye vector calculation
         eyeVector = normalize(worldPosition.xyz - cameraPosition);
+        newPosition += newPosition + centroidBuffer*(tProgress)*(3. + offset * 7.);
         //output position
         gl_Position = projectionMatrix * modelViewMatrix * vec4(1.*newPosition, 1.0);
     }
@@ -94,8 +105,6 @@ const IcosahedronShaderMaterial = shaderMaterial(
         vec2 uv = gl_FragCoord.xy/vec2(1000); //TODO:change 1000 to aspect ratio
         uv += 1.*refracted.xy;
 
-        
-
         vec4 texture = texture2D(uTexture, uv);
         gl_FragColor = vec4(texture);//diffuse * texture);
     }
@@ -116,7 +125,7 @@ function Icosahedron(props){
     const [
         colorMap,
       ] = useLoader(TextureLoader, [
-        "satelite.jpg",
+        "water.jpg",
       ]);
 
     useEffect(() => {
@@ -129,10 +138,36 @@ function Icosahedron(props){
             centroid[i + 1] = centroidVector.y;
             centroid[i + 2] = centroidVector.z;
         }
+        //Set centroid
         geoMesh.current.setAttribute(
             "centroidBuffer",
             new THREE.BufferAttribute(new Float32Array(centroid), 3)
         );
+        let axis = getRandomAxis();
+        let axes = new Array(len * 3).fill(0);
+        for (let i = 0; i < len * 3; i = i + 3) {
+            axes[i] = axis.x;
+            axes[i + 1] = axis.y;
+            axes[i + 2] = axis.z;
+        }
+        //Set axis
+        geoMesh.current.setAttribute(
+            "axis",
+            new THREE.BufferAttribute(new Float32Array(axes), 3)
+        );
+
+        let offset = new Array(len);
+        for(let i = 0; i < len; i++){
+            offset[i] = (Math.random() - 0.5)*20;
+        }
+        //Set offsets
+        geoMesh.current.setAttribute(
+            "offset",
+            new THREE.BufferAttribute(new Float32Array(offset), 1)
+        );
+        //Set texture wrapping
+        colorMap.wrapS = THREE.RepeatWrapping;
+        colorMap.wrapT = THREE.RepeatWrapping;
         console.log(geoMesh.current.attributes);
     });
     
@@ -155,14 +190,6 @@ function Icosahedron(props){
                         uTexture = {colorMap}
                         uColor = {"hotpink"}
                     />
-                    {/* <meshStandardMaterial
-                        displacementScale={0.0}
-                        map={colorMap}
-                        displacementMap={displacementMap}
-                        normalMap={normalMap}
-                        roughnessMap={roughnessMap}
-                        aoMap={aoMap}
-                    /> */}
             </mesh>
     );
 }

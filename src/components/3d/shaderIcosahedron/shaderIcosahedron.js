@@ -1,10 +1,11 @@
-import React, {Suspense, useRef} from 'react';
+import React, {Suspense, useEffect, useRef} from 'react';
 import {Canvas, extend, useFrame, useLoader} from '@react-three/fiber'
 import { OrbitControls} from "@react-three/drei";
 import { TextureLoader } from "three/src/loaders/TextureLoader";
-import {shaderMaterial} from "@react-three/drei"
+import {shaderMaterial} from "@react-three/drei";
 import glsl from "babel-plugin-glsl/macro";
 import * as THREE from "three";
+import { getCentroid } from './helpers';
 
 /**
  * For basic introduction to shaders and using it in react-three-fiber, I recommend 
@@ -19,19 +20,41 @@ const IcosahedronShaderMaterial = shaderMaterial(
     },
     //Vertex shader
     glsl`
+    attribute vec3 centroidBuffer;
+    // attribute vec3 axis;
+    // attribute float offset;
     varying vec2 vUv;
     varying vec3 vNormal;
     varying vec3 eyeVector;
     float PI = 3.141592653589793238;
 
+    // mat4 rotationMatrix(vec3 axis, float angle) {
+    //     axis = normalize(axis);
+    //     float s = sin(angle);
+    //     float c = cos(angle);
+    //     float oc = 1.0 - c;
+        
+    //     return mat4(oc * axis.x * axis.x + c,           oc * axis.x * axis.y - axis.z * s,  oc * axis.z * axis.x + axis.y * s,  0.0,
+    //                 oc * axis.x * axis.y + axis.z * s,  oc * axis.y * axis.y + c,           oc * axis.y * axis.z - axis.x * s,  0.0,
+    //                 oc * axis.z * axis.x - axis.y * s,  oc * axis.y * axis.z + axis.x * s,  oc * axis.z * axis.z + c,           0.0,
+    //                 0.0,                                0.0,                                0.0,                                1.0);
+    // }
+    
+    // vec3 rotate(vec3 v, vec3 axis, float angle) {
+    //   mat4 m = rotationMatrix(axis, angle);
+    //   return (m * vec4(v, 1.0)).xyz;
+    // }
+
     void main() {
         vUv = uv;
         vNormal = normalize(normalMatrix*normal);
-
         vec3 newPosition = position;
+        newPosition += newPosition + centroidBuffer*3.; //(tProgress)*(3. + offset*7.);
+        //eye vector calculation
         vec4 worldPosition = modelMatrix * vec4(newPosition, 1.0);
         eyeVector = normalize(worldPosition.xyz - cameraPosition);
-        gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+        //output position
+        gl_Position = projectionMatrix * modelViewMatrix * vec4(1.*newPosition, 1.0);
     }
     `,
     //Fragment shader
@@ -62,13 +85,13 @@ const IcosahedronShaderMaterial = shaderMaterial(
 
         vec2 rand = hash22(vec2(floor(diffuse*20.0)));
 
-        vec3 refracted = refract(eyeVector, normal, 1.0/3.0);
+        vec3 refracted = refract(eyeVector, normal, 1.0/5.0);
         vec2 uvv = vec2(
             sign(rand.x - 0.5)*1.0 + (rand.x -0.5) * 0.06,
             sign(rand.y - 0.5)*1.0 + (rand.y-0.5) * 0.06
         );
 
-        vec2 uv = rand * gl_FragCoord.xy/vec2(1000); //TODO:change 1000 to aspect ratio
+        vec2 uv = gl_FragCoord.xy/vec2(1000); //TODO:change 1000 to aspect ratio
         uv += 1.*refracted.xy;
 
         
@@ -87,6 +110,7 @@ extend({IcosahedronShaderMaterial});
  */
 function Icosahedron(props){
     const mesh = useRef();
+    const geoMesh = useRef();
     const matRef = useRef();
 
     const [
@@ -94,6 +118,23 @@ function Icosahedron(props){
       ] = useLoader(TextureLoader, [
         "satelite.jpg",
       ]);
+
+    useEffect(() => {
+        let len = geoMesh.current.attributes.position.array.length;
+        let centroidVector = getCentroid(geoMesh.current);
+        let centroid = new Array(len * 3).fill(0);
+        
+        for (let i = 0; i < len * 3; i = i + 3) {
+            centroid[i] = centroidVector.x;
+            centroid[i + 1] = centroidVector.y;
+            centroid[i + 2] = centroidVector.z;
+        }
+        geoMesh.current.setAttribute(
+            "centroidBuffer",
+            new THREE.BufferAttribute(new Float32Array(centroid), 3)
+        );
+        console.log(geoMesh.current.attributes);
+    });
     
     useFrame(({ clock }) => {
         mesh.current.rotation.x = clock.getElapsedTime()*0.03;
@@ -106,7 +147,8 @@ function Icosahedron(props){
             {...props} 
             ref = {mesh}>
                     <icosahedronGeometry 
-                        args = {[1,1]} 
+                        ref = {geoMesh}
+                        args = {[1,1]}
                     />
                     <icosahedronShaderMaterial 
                         ref = {matRef}

@@ -1,6 +1,6 @@
 import React, {Suspense, useEffect, useRef} from 'react';
 import {Canvas, extend, useFrame, useLoader} from '@react-three/fiber'
-import { OrbitControls} from "@react-three/drei";
+import { Loader, OrbitControls} from "@react-three/drei";
 import { TextureLoader } from "three/src/loaders/TextureLoader";
 import {shaderMaterial} from "@react-three/drei";
 import glsl from "babel-plugin-glsl/macro";
@@ -65,7 +65,7 @@ const IcosahedronShaderMaterial = shaderMaterial(
         eyeVector = normalize(worldPosition.xyz - cameraPosition);
         newPosition += newPosition + centroidBuffer*(tProgress)*(3. + offset * 7.);
         //output position
-        gl_Position = projectionMatrix * modelViewMatrix * vec4(1.*newPosition, 1.0);
+        gl_Position = projectionMatrix * modelViewMatrix * vec4(1.4*newPosition, 1.0);
     }
     `,
     //Fragment shader
@@ -96,13 +96,13 @@ const IcosahedronShaderMaterial = shaderMaterial(
 
         vec2 rand = hash22(vec2(floor(diffuse*20.0)));
 
-        vec3 refracted = refract(eyeVector, normal, 1.0/5.0);
+        vec3 refracted = refract(eyeVector, normal, 1.0/3.0);
         vec2 uvv = vec2(
             sign(rand.x - 0.5)*1.0 + (rand.x -0.5) * 0.06,
             sign(rand.y - 0.5)*1.0 + (rand.y-0.5) * 0.06
         );
 
-        vec2 uv = gl_FragCoord.xy/vec2(1000); //TODO:change 1000 to aspect ratio
+        vec2 uv = gl_FragCoord.xy/vec2(500); //TODO:change 1000 to aspect ratio
         uv += 1.*refracted.xy;
 
         vec4 texture = texture2D(uTexture, uv);
@@ -119,7 +119,7 @@ extend({IcosahedronShaderMaterial});
  */
 function Icosahedron(props){
     const mesh = useRef();
-    const geoMesh = useRef();
+    const geoRef = useRef();
     const matRef = useRef();
 
     const [
@@ -129,8 +129,8 @@ function Icosahedron(props){
       ]);
 
     useEffect(() => {
-        let len = geoMesh.current.attributes.position.array.length;
-        let centroidVector = getCentroid(geoMesh.current);
+        let len = geoRef.current.attributes.position.array.length;
+        let centroidVector = getCentroid(geoRef.current);
         let centroid = new Array(len * 3).fill(0);
         
         for (let i = 0; i < len * 3; i = i + 3) {
@@ -139,7 +139,7 @@ function Icosahedron(props){
             centroid[i + 2] = centroidVector.z;
         }
         //Set centroid
-        geoMesh.current.setAttribute(
+        geoRef.current.setAttribute(
             "centroidBuffer",
             new THREE.BufferAttribute(new Float32Array(centroid), 3)
         );
@@ -151,7 +151,7 @@ function Icosahedron(props){
             axes[i + 2] = axis.z;
         }
         //Set axis
-        geoMesh.current.setAttribute(
+        geoRef.current.setAttribute(
             "axis",
             new THREE.BufferAttribute(new Float32Array(axes), 3)
         );
@@ -160,15 +160,20 @@ function Icosahedron(props){
         for(let i = 0; i < len; i++){
             offset[i] = (Math.random() - 0.5)*20;
         }
+        offset[0] = 100;
+        offset[1] = 100;
+        offset[2] = 100;
         //Set offsets
-        geoMesh.current.setAttribute(
+        geoRef.current.setAttribute(
             "offset",
             new THREE.BufferAttribute(new Float32Array(offset), 1)
         );
         //Set texture wrapping
         colorMap.wrapS = THREE.RepeatWrapping;
         colorMap.wrapT = THREE.RepeatWrapping;
-        console.log(geoMesh.current.attributes);
+        colorMap.repeat = new THREE.Vector2(4,4);
+        console.log(geoRef.current.attributes);
+        console.log(colorMap);
     });
     
     useFrame(({ clock }) => {
@@ -182,7 +187,7 @@ function Icosahedron(props){
             {...props} 
             ref = {mesh}>
                     <icosahedronGeometry 
-                        ref = {geoMesh}
+                        ref = {geoRef}
                         args = {[1,1]}
                     />
                     <icosahedronShaderMaterial 
@@ -206,6 +211,7 @@ function ShaderIcosahedron(props){
                 <ambientLight/>
                 {/* <directionalLight/> */}
             </Canvas>
+            <Loader/>
         </div>
     )
 }

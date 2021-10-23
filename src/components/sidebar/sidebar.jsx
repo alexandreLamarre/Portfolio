@@ -34,7 +34,7 @@ function SideBarIcon ({icon, text, hidden}) {
     return (
         <div className={`sidebar-icon group ${hidden?"hidden":""}`}>
             {icon}
-            <span class="sidebar-text group-hover:scale-100"> {text} </span>
+            <span class="sidebar-text group-hover:scale-150"> {text} </span>
         </div>
     )
 };

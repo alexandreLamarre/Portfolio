@@ -1,7 +1,8 @@
 import './App.css';
 import TopNavigation from './components/navigation';
 import SiderBar from './components/sidebar';
-import ThreeScene from './components/three/threescene';
+//import ThreeScene from './components/three/threescene';
+import LavaScene from './components/three/lava/lavaComponent';
 //import ShaderIcosahedron from './components/3d/shaderIcosahedron';
 // import RegularPolytope from "./components/3d/torus";
 //import MainTitle from "./components/titles";
@@ -9,7 +10,7 @@ import ThreeScene from './components/three/threescene';
 function App() {
   return (
     <div className="App">
-      <ThreeScene/>
+      <LavaScene/>
       <SiderBar/>
       <TopNavigation/>
     {/*} <MainTitle/> {/** 

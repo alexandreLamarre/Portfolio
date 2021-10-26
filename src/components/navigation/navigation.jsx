@@ -12,10 +12,32 @@ const TopNavigation = () => {
     return (
         <div className="navigation-bar justify-items-center">
             <Title/>
+            <About/>
+            <Resume/>
             <Search/>
             <DarkModeToggle></DarkModeToggle>
         </div>
     )
+};
+
+const About = () => {
+    return (
+        <div className="navigation-text-button">
+            <span>
+
+            </span>
+        </div>
+    );
+};
+
+const Resume = () => {
+    return (
+        <div className ="navigation-text-button">
+            <span>
+                
+            </span>
+        </div>
+    );
 };
 
 const DarkModeToggle = () => {

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import { FaInfinity, FaUniversity } from "react-icons/fa";
 import { SiIbm, SiThreedotjs } from "react-icons/si";
-import { MdComputer, MdWeb, MdOutlineWork } from "react-icons/md";
+import { MdWeb, MdOutlineWork } from "react-icons/md";
 import { IoLogoOctocat } from "react-icons/io";
 import { BiHomeCircle } from "react-icons/bi";
 import {FcGraduationCap} from 'react-icons/fc';
@@ -10,7 +10,7 @@ import {GiMeshNetwork} from 'react-icons/gi';
 import {AiOutlineConsoleSql} from 'react-icons/ai';
 
 function SiderBar(props){
-    const [showWork, setShowWork] =  useState('work'); // one of 'none', 'work', 'education', 'projects'
+    const [showWork, setShowWork] =  useState('none'); // one of 'none', 'work', 'education', 'projects'
 
 
     return (

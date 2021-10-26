@@ -18,7 +18,8 @@
   text-green-700 hover:text-white
     hover:rounded-xl rounded-3xl
     transition-all duration-300 ease-linear
-    cursor-pointer shadow-lg ;
+    cursor-pointer shadow-lg
+    opacity-50 hover:opacity-100
   }
 
   .sidebar-text {
@@ -32,6 +33,9 @@
   .navigation-bar{
     @apply fixed top-0 w-screen flex flex-row bg-gray-700
      items-center justify-evenly h-14 shadow-lg rounded-t-sm
+     rounded-b-xl
+     opacity-50
+     hover:opacity-100
   }
 
   .navigation-bar-icon {
@@ -46,6 +50,10 @@
     @apply ml-auto mr-4;
   }
 
+  .navigation-text-button {
+    
+  }
+
   .title{
     @apply tracking-wider font-semibold text-opacity-80 
     mr-auto ml-10 my-auto 
@@ -53,7 +61,7 @@
     text-2xl select-none cursor-default
     transition duration-300 ease-in-out;
   }
-  
+
   .search {
     @apply w-1/5 flex items-center justify-start 
     bg-gray-400 dark:bg-gray-600

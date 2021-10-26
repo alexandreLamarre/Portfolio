@@ -13,7 +13,7 @@
 @layer components {
   .sidebar-icon {
     @apply relative flex items-center justify-center 
-    h-12 w-12 mt-2 mb-2 mx-auto  
+    h-12 w-12 mt-2 mb-2 ml-0.5
   bg-gray-400 hover:bg-green-600 
   text-green-700 hover:text-white
     hover:rounded-xl rounded-3xl
@@ -34,7 +34,8 @@
     @apply fixed top-0 w-screen flex flex-row bg-gray-700
      items-center justify-evenly h-14 shadow-lg rounded-t-sm
      rounded-b-xl
-     opacity-50
+     opacity-70
+     transition-all duration-500 ease-linear
      hover:opacity-100
   }
 

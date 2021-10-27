@@ -1,7 +1,7 @@
 import {Canvas, extend, useLoader, useThree} from "@react-three/fiber";
 import React, {Suspense, useEffect, useRef, useState, useMemo} from 'react';
 import {useFrame} from '@react-three/fiber';
-import { Loader, shaderMaterial, OrbitControls } from "@react-three/drei";
+import { Loader, shaderMaterial, OrbitControls, Sky } from "@react-three/drei";
 import glsl from "babel-plugin-glsl/macro";
 import * as THREE from 'three';
 import { TextureLoader } from "three/src/loaders/TextureLoader";
@@ -222,12 +222,13 @@ function ParticleText(props){
                 <ambientLight/>
                 <pointLight position = {[10, 10, 10]}/>
                 <Suspense fallback={null}>
-                    <OrbitControls maxDistance={10} maxPolarAngle={Math.PI/2 - 0.1} minPolarAngle={-Math.PI/2}/>
+                    <OrbitControls maxDistance={20} maxPolarAngle={Math.PI/2 - 0.1} minPolarAngle={-Math.PI/2}/>
                     {/* <Plane/> */}
                     <Ocean/>
                     <Box position = {[-1.2, 0, 0]}/>
                     <Box position = {[1.2, 0, 0]}/>
                 </Suspense>
+                <Sky scale={1000} turbidity={0.1}/>
             </Canvas>
             <Loader/>
         </div>
@@ -238,7 +239,7 @@ function ParticleText(props){
 function Ocean() {
     const ref = useRef();
     const gl = useThree((state) => state.gl);
-    const waterNormals = useLoader(THREE.TextureLoader, 'lavatile.jpg');
+    const waterNormals = useLoader(THREE.TextureLoader, 'waternormals.jpeg');
     waterNormals.wrapS = waterNormals.wrapT = THREE.RepeatWrapping;
     const geom = useMemo(() => new THREE.PlaneGeometry(10000, 10000), []);
     const config = useMemo(

@@ -17,26 +17,6 @@ const TopNavigation = () => {
     )
 };
 
-const About = () => {
-    return (
-        <div className="navigation-text-button">
-            <span>
-
-            </span>
-        </div>
-    );
-};
-
-const Resume = () => {
-    return (
-        <div className ="navigation-text-button">
-            <span>
-                
-            </span>
-        </div>
-    );
-};
-
 const DarkModeToggle = () => {
     const [darkTheme, setDarkTheme] = useDarkMode();
     const handleMode = () => setDarkTheme(!darkTheme);
@@ -67,6 +47,17 @@ const Search = () => (
     </div>
 );
 
+const Resume = () => (
+    <div className='navigation-text-button mr-4 ml-2 pl-4 pr-4'>
+        <button>  Resume </button>
+    </div>
+);
+
+const About = () => (
+    <div className='navigation-text-button mr-2 ml-4 pl-4 pr-4'>
+        <button> About </button>
+    </div>
+);
 
 
 export default TopNavigation;

@@ -2,6 +2,7 @@ import Grid from "./grid";
 import {Canvas} from '@react-three/fiber';
 import noise, {perlin3} from '../../../lib/noise';
 import React from 'react';
+import { ResizeObserver } from '@juggle/resize-observer';
 
 export default function GridScene() {
     const seed = Math.floor(Math.random() * (2**16));
@@ -41,6 +42,7 @@ export default function GridScene() {
         <div className='fixed top-0 bottom-0 h-100vh w-screen'>
             <Canvas
                 camera={{position: [0,2,10], fov: 75}}
+                resize={{ polyfill: ResizeObserver }}
             >
                 <ambientLight/>
                 <Grid

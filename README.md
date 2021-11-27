@@ -1,6 +1,6 @@
-#Portfolio
+# Portfolio
 
-
+<img src="https://app.travis-ci.com/alexandreLamarre/Portfolio.svg?branch=main"/>
 <!--# Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

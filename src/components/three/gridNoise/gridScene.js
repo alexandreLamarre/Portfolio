@@ -49,7 +49,7 @@ export default function GridScene() {
                     grid={{
                         width: 100,
                         height: 100,
-                        sep: 0.2
+                        sep: 0.4
                     }}
                     zOfXYT={zOfXYT}
                     colorOfXYZT={colorOfXYZT}

@@ -61,9 +61,10 @@
 
   .title{
     @apply tracking-wider font-semibold text-opacity-80 
+    cursor-pointer
     mr-auto ml-10 my-auto 
     text-gray-200
-    text-2xl select-none cursor-default
+    text-2xl select-none 
     transition duration-300 ease-in-out;
   }
 

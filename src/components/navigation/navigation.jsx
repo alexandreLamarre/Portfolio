@@ -36,7 +36,14 @@ const DarkModeToggle = () => {
 
 const Title = () => {
     return (
-        <h5 className="title"> Alexandre Lamarre </h5>
+        <a 
+        className="title" 
+        href="https://www.linkedin.com/in/alexandre-lamarre-b2819920a/" 
+        target='_blank' 
+        rel='noreferrer' 
+        referrerPolicy='no-referrer'> 
+        Alexandre Lamarre 
+        </a>
     )
 };
 

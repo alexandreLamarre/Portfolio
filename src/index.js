@@ -3,10 +3,26 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {createStore} from 'redux';
+import allReducers from './reducer';
+import {Provider} from 'react-redux';
+
+/**
+ * Redux store for our webapp
+ * For chrome dev tools installation, please see:
+ * https://github.com/zalmoxisus/redux-devtools-extension#installation
+ * 
+ */
+const store = createStore(
+  allReducers,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+  );
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App /> 
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

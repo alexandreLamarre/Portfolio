@@ -31,7 +31,7 @@ export default function Grid({
 
     let t = init //time
 
-    let {positions, colors, normals} = useMemo(() => {
+    let {positions, normals} = useMemo(() => {
         return initPosColorNormals(width, height, sep, zOfXYT, colorOfXYZT, t);
     }, [width, height, sep, zOfXYT, colorOfXYZT, t]);
 
@@ -40,24 +40,19 @@ export default function Grid({
         return initIndexBuffers(width, height);
     }, [width, height])
 
-    let posRef = useRef(), colorRef = useRef();
+    let posRef = useRef() 
 
     useFrame(() => {
         t = update(t)
-        const positions = posRef.current.array, colors = colorRef.current.array;
+        const positions = posRef.current.array 
         let i = 0;
         for (let yi = 0; yi < height; yi++) {
             for (let xi = 0; xi < width; xi++) {
                 positions[i + 2] = zOfXYT(positions[i], positions[i + 1], t);
-                let c = colorOfXYZT(positions[i], positions[i + 1], positions[i + 2], t);
-                colors[i] = c.r;
-                colors[i + 1] = c.g;
-                colors[i + 2] = c.b;
                 i += 3
             }
         }
         posRef.current.needsUpdate = true;
-        colorRef.current.needsUpdate = true;
     });
 
     return (
@@ -74,13 +69,6 @@ export default function Grid({
                     itemSize={3}
                 />
                 <bufferAttribute
-                    ref={colorRef}
-                    attachObject={['attributes', 'color']}
-                    array={colors}
-                    count={colors.length/3}
-                    itemSize={3}
-                />
-                <bufferAttribute
                     attachObject={['attributes', 'normal']}
                     array={normals}
                     count={normals.length/3}
@@ -93,7 +81,7 @@ export default function Grid({
                 />
             </bufferGeometry>
             <meshStandardMaterial
-                vertexColors
+                color={new THREE.Color(1,1,1)}
                 side={THREE.DoubleSide}
                 wireframe={true}
             />

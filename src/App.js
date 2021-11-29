@@ -2,6 +2,7 @@ import './App.css';
 import TopNavigation from './components/navigation';
 import SiderBar from './components/sidebar';
 import GridScene from './components/three/gridNoise';
+import NextAction from './components/nextAction';
 //import ThreeScene from './components/three/threescene';
 // import LavaScene from './components/three/lava/lavaComponent';
 //import ShaderIcosahedron from './components/3d/shaderIcosahedron';
@@ -16,7 +17,8 @@ function App() {
       <GridScene></GridScene>
       <SiderBar/>
       <TopNavigation/>
-    {/*} <MainTitle/> {/** 
+      <NextAction/>
+        {/*} <MainTitle/> {/** 
       <RegularPolytope/> */}
       {/* <SceneWrapper/> */}
     </div>

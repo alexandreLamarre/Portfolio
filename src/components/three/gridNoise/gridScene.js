@@ -39,7 +39,7 @@ export default function GridScene() {
     }
 
     return (
-        <div className='fixed top-0 bottom-0 h-100vh w-screen'>
+        <div className='fixed top-0 bottom-0 h-100vh w-screen bg-gray-600 dark:bg-black'>
             <Canvas
                 camera={{position: [0,2,10], fov: 75}}
                 resize={{ polyfill: ResizeObserver }}

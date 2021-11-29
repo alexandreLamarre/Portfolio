@@ -1,6 +1,7 @@
 # Portfolio
 
 <img src="https://app.travis-ci.com/alexandreLamarre/Portfolio.svg?branch=main"/>
+
 [![MegaLinter](https://github.com/alexandreLamarre/Portfolio/workflows/MegaLinter/badge.svg?branch=main)](https://github.com/alexandreLamarre/Portfolio/actions?query=workflow%3AMegaLinter+branch%3Amain)
 <!--# Getting Started with Create React App
 

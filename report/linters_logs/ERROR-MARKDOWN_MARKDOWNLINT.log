@@ -1,8 +1,0 @@
-Results of markdownlint linter (version 0.29.0)
-See documentation on https://megalinter.github.io/descriptors/markdown_markdownlint/
------------------------------------------------
-
-❌ [ERROR] for workspace /tmp/lint
-Linter raw log:
-/tmp/lint/src/components/three/gridNoise/README.md:1 MD041/first-line-heading/first-line-h1 First line in a file should be a top-level heading [Context: "The following component declar..."]
-

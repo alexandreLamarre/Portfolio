@@ -1,0 +1,23 @@
+Results of stylelint linter (version 14.1.0)
+See documentation on https://megalinter.github.io/descriptors/css_stylelint/
+-----------------------------------------------
+
+❌ [ERROR] src/App.css - FIXED
+    
+    src/App.css
+      1:1   ✖  Expected class selector to be kebab-case  selector-class-pattern
+      6:1   ✖  Expected class selector to be kebab-case  selector-class-pattern
+     12:3   ✖  Expected class selector to be kebab-case  selector-class-pattern
+     17:1   ✖  Expected class selector to be kebab-case  selector-class-pattern
+     28:1   ✖  Expected class selector to be kebab-case  selector-class-pattern
+     32:12  ✖  Expected keyframe name to be kebab-case   keyframes-name-pattern
+
+❌ [ERROR] src/index.css - FIXED
+    
+    src/index.css
+      1:1   ✖  Unexpected unknown at-rule "@tailwind"             at-rule-no-unknown              
+      2:1   ✖  Unexpected unknown at-rule "@tailwind"             at-rule-no-unknown              
+      3:1   ✖  Unexpected unknown at-rule "@tailwind"             at-rule-no-unknown              
+     13:1   ✖  Unexpected unknown at-rule "@layer"                at-rule-no-unknown              
+     49:23  ✖  Unexpected unknown pseudo-class selector ":first"  selector-pseudo-class-no-unknown
+

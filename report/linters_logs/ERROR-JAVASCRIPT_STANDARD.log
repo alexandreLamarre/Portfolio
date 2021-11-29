@@ -1,0 +1,74 @@
+Results of standard linter (version 15.0.1)
+See documentation on https://megalinter.github.io/descriptors/javascript_standard/
+-----------------------------------------------
+
+✅ [SUCCESS] craco.config.js - FIXED
+✅ [SUCCESS] src/App.js - FIXED
+❌ [ERROR] src/App.test.js - FIXED
+    standard: Use JavaScript Standard Style (https://standardjs.com)
+      src/App.test.js:4:1: 'test' is not defined.
+
+✅ [SUCCESS] src/action/actions/index.js
+✅ [SUCCESS] src/action/actions/transitionNext.js
+✅ [SUCCESS] src/action/index.js
+✅ [SUCCESS] src/components/nextAction/index.js - FIXED
+✅ [SUCCESS] src/components/nextAction/nextAction.js - FIXED
+✅ [SUCCESS] src/components/three/gridNoise/grid.js - FIXED
+✅ [SUCCESS] src/components/three/gridNoise/gridScene.js - FIXED
+✅ [SUCCESS] src/components/three/gridNoise/index.js - FIXED
+✅ [SUCCESS] src/components/three/gridNoise/initHelpers.js - FIXED
+✅ [SUCCESS] src/components/three/lava/fragmentShader.js - FIXED
+✅ [SUCCESS] src/components/three/lava/index.js - FIXED
+❌ [ERROR] src/components/three/lava/lavaComponent.js - FIXED
+    standard: Use JavaScript Standard Style (https://standardjs.com)
+      src/components/three/lava/lavaComponent.js:1:27: 'useEffect' is defined but never used.
+      src/components/three/lava/lavaComponent.js:2:18: 'extend' is defined but never used.
+      src/components/three/lava/lavaComponent.js:2:26: 'useFrame' is defined but never used.
+      src/components/three/lava/lavaComponent.js:2:36: 'useLoader' is defined but never used.
+      src/components/three/lava/lavaComponent.js:4:10: 'TextureLoader' is defined but never used.
+      src/components/three/lava/lavaComponent.js:5:13: 'THREE' is defined but never used.
+      src/components/three/lava/lavaComponent.js:6:8: 'LavaShader' is defined but never used.
+      src/components/three/lava/lavaComponent.js:7:10: 'AmbientLight' is defined but never used.
+      src/components/three/lava/lavaComponent.js:7:24: 'PlaneBufferGeometry' is defined but never used.
+      src/components/three/lava/lavaComponent.js:7:45: 'MeshPhongMaterial' is defined but never used.
+      src/components/three/lava/lavaComponent.js:34:9: 'meshRef' is assigned a value but never used.
+
+✅ [SUCCESS] src/components/three/lava/lavaJsShader.js - FIXED
+✅ [SUCCESS] src/components/three/lava/vertexShader.js - FIXED
+✅ [SUCCESS] src/components/three/particleText/box.js
+✅ [SUCCESS] src/components/three/particleText/index.js - FIXED
+✅ [SUCCESS] src/components/three/particleText/ocean.js - FIXED
+❌ [ERROR] src/components/three/particleText/particleComponent.js - FIXED
+    standard: Use JavaScript Standard Style (https://standardjs.com)
+      src/components/three/particleText/particleComponent.js:1:18: 'extend' is defined but never used.
+      src/components/three/particleText/particleComponent.js:4:18: 'shaderMaterial' is defined but never used.
+
+✅ [SUCCESS] src/components/three/particleText/plane.js - FIXED
+❌ [ERROR] src/components/three/shaders/lava.js - FIXED
+    standard: Use JavaScript Standard Style (https://standardjs.com)
+      src/components/three/shaders/lava.js:1:10: 'Canvas' is defined but never used.
+      src/components/three/shaders/lava.js:1:26: 'useLoader' is defined but never used.
+      src/components/three/shaders/lava.js:1:37: 'useThree' is defined but never used.
+      src/components/three/shaders/lava.js:1:47: 'useFrame' is defined but never used.
+      src/components/three/shaders/lava.js:2:8: 'React' is defined but never used.
+      src/components/three/shaders/lava.js:2:17: 'Suspense' is defined but never used.
+      src/components/three/shaders/lava.js:2:27: 'useEffect' is defined but never used.
+      src/components/three/shaders/lava.js:2:38: 'useRef' is defined but never used.
+      src/components/three/shaders/lava.js:2:46: 'useState' is defined but never used.
+      src/components/three/shaders/lava.js:2:56: 'useMemo' is defined but never used.
+
+✅ [SUCCESS] src/components/three/shaders/lava2.js - FIXED
+✅ [SUCCESS] src/components/three/shaders/water.js
+✅ [SUCCESS] src/index.js - FIXED
+✅ [SUCCESS] src/lib/noise.js - FIXED
+❌ [ERROR] src/lib/pageState/PageState.js
+    standard: Use JavaScript Standard Style (https://standardjs.com)
+      src/lib/pageState/PageState.js:1:7: 'Node' is defined but never used.
+
+✅ [SUCCESS] src/lib/pageState/index.js
+✅ [SUCCESS] src/reducer/counter.js - FIXED
+✅ [SUCCESS] src/reducer/index.js - FIXED
+✅ [SUCCESS] src/reducer/isLogged.js - FIXED
+✅ [SUCCESS] src/reportWebVitals.js - FIXED
+✅ [SUCCESS] src/setupTests.js - FIXED
+✅ [SUCCESS] tailwind.config.js - FIXED

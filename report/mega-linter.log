@@ -1,0 +1,626 @@
+----------------------------------------------------------------------------------------------------
+-------------------------------------------- MegaLinter --------------------------------------------
+----------------------------------------------------------------------------------------------------
+ - Image Creation Date: 2021-11-18T17:29:04Z
+ - Image Revision: 74b801d5
+ - Image Version: v5
+----------------------------------------------------------------------------------------------------
+The MegaLinter documentation can be found at:
+ - https://megalinter.github.io
+----------------------------------------------------------------------------------------------------
+GITHUB_REPOSITORY: 
+GITHUB_REF: 
+GITHUB_RUN_ID: 
+
+
+[Activation] EDITORCONFIG_EDITORCONFIG_CHECKER has been set inactive, as none of these files has been found: ['.editorconfig']
+[Activation] JAVASCRIPT_ES has been set inactive, as none of these files has been found: ['.eslintrc.json', '.eslintrc.yml', '.eslintrc.yaml', '.eslintrc.js', '.eslintrc.cjs']
+[Activation] JSX_ESLINT has been set inactive, as none of these files has been found: ['.eslintrc.json', '.eslintrc.yml', '.eslintrc.yaml', '.eslintrc.js', '.eslintrc.cjs']
+[Activation] SWIFT_SWIFTLINT has been set inactive, as none of these files has been found: ['.swiftlint.yml']
+[Activation] TSX_ESLINT has been set inactive, as none of these files has been found: ['.eslintrc.json', '.eslintrc.yml', '.eslintrc.yaml', '.eslintrc.js', '.eslintrc.cjs']
+[Activation] TYPESCRIPT_ES has been set inactive, as none of these files has been found: ['.eslintrc.json', '.eslintrc.yml', '.eslintrc.yaml', '.eslintrc.js', '.eslintrc.cjs']
+Skipped linters: ANSIBLE_ANSIBLE_LINT, EDITORCONFIG_EDITORCONFIG_CHECKER, JAVASCRIPT_ES, JAVASCRIPT_PRETTIER, JSX_ESLINT, KUBERNETES_KUBEVAL, MARKDOWN_REMARK_LINT, SALESFORCE_SFDX_SCANNER_APEX, SALESFORCE_SFDX_SCANNER_AURA, SALESFORCE_SFDX_SCANNER_LWC, SWIFT_SWIFTLINT, TSX_ESLINT, TYPESCRIPT_ES, TYPESCRIPT_PRETTIER
+To receive reports as email, please set variable EMAIL_REPORTER_EMAIL
+Listing all files in directory [/tmp/lint], then filter with:
+- File extensions: , .R, .RMD, .Rmd, .bash, .c, .c++, .cc, .cdxml, .clj, .cljc, .cljs, .coffee, .cpp, .cs, .css, .cu, .cuh, .cxx, .dart, .dash, .edn, .env, .feature, .go, .gradle, .graphql, .groovy, .gvy, .h, .h++, .hcl, .hh, .hpp, .htm, .html, .hxx, .java, .js, .json, .json5, .jsonc, .ksh, .kt, .kts, .lua, .md, .nf, .p6, .php, .pl, .pl6, .pm, .pm6, .pp, .proto, .ps1, .ps1xml, .psd1, .psm1, .psrc, .pssc, .py, .r, .raku, .rakumod, .rakutest, .rb, .rs, .rst, .saas, .scala, .scss, .sh, .smk, .sql, .t, .tex, .tf, .ts, .vb, .xml, .yaml, .yml
+- File names (regex): Dockerfile, Jenkinsfile, Snakefile
+- Excluding .gitignored files [39709]: /tmp/lint/.env, /tmp/lint/node_modules/.bin/acorn, /tmp/lint/node_modules/.bin/acorn.cmd, /tmp/lint/node_modules/.bin/acorn.ps1, /tmp/lint/node_modules/.bin/ansi-html, /tmp/lint/node_modules/.bin/ansi-html.cmd, /tmp/lint/node_modules/.bin/ansi-html.ps1, /tmp/lint/node_modules/.bin/atob, /tmp/lint/node_modules/.bin/atob.cmd, /tmp/lint/node_modules/.bin/atob.ps1,...(full list in DEBUG)
+Kept [49] files on [71] found files
+
++----MATCHING LINTERS--------------------+---------------------+----------------+------------+
+| Descriptor  | Linter                   | Criteria            | Matching files | Format/Fix |
++-------------+--------------------------+---------------------+----------------+------------+
+| ACTION      | actionlint               | .yml|.yaml          | 1              | no         |
+| COPYPASTE   | jscpd                    |                     | project        | no         |
+| CREDENTIALS | secretlint               |                     | project        | no         |
+| CSS         | stylelint                | .css|.scss|.saas    | 2              | yes        |
+| GIT         | git_diff                 |                     | project        | no         |
+| HTML        | htmlhint                 | .html|.htm          | 1              | no         |
+| JAVASCRIPT  | standard                 | .js                 | 35             | yes        |
+| JSON        | jsonlint                 | .json               | 5              | no         |
+| JSON        | eslint-plugin-jsonc      | .json|.json5|.jsonc | 5              | yes        |
+| JSON        | v8r                      | .json               | 5              | no         |
+| JSON        | prettier                 | .json               | 5              | yes        |
+| MARKDOWN    | markdownlint             | .md                 | 2              | yes        |
+| MARKDOWN    | markdown-link-check      | .md                 | 2              | no         |
+| MARKDOWN    | markdown-table-formatter | .md                 | 2              | yes        |
+| SPELL       | misspell                 |                     | 49             | yes        |
+| SPELL       | cspell                   |                     | 49             | no         |
+| YAML        | prettier                 | .yml|.yaml          | 3              | yes        |
+| YAML        | yamllint                 | .yml|.yaml          | 3              | no         |
+| YAML        | v8r                      | .yml|.yaml          | 3              | no         |
++-------------+--------------------------+---------------------+----------------+------------+
+
+
+[1m### Processed [GIT] files[0m
+- Using [git_diff v2.30.2] https://megalinter.github.io/v5/descriptors/git_git_diff
+- MegaLinter key: [GIT_GIT_DIFF]
+- Rules config: identified by [git_diff]
+[32m✅ Linted [GIT] files with [git_diff] successfully - (0.74s)[0m
+[Text Reporter] Generated TEXT report: /tmp/lint/report/linters_logs/SUCCESS-GIT_GIT_DIFF.log
+
+[1m### Processed [ACTION] files[0m
+- Using [actionlint v1.6.8] https://megalinter.github.io/v5/descriptors/action_actionlint
+- MegaLinter key: [ACTION_ACTIONLINT]
+- Rules config: identified by [actionlint]
+[actionlint] .github/workflows/mega-linter.yml
+[32m✅ Linted [ACTION] files with [actionlint] successfully - (1.42s)[0m
+[Text Reporter] Generated TEXT report: /tmp/lint/report/linters_logs/SUCCESS-ACTION_ACTIONLINT.log
+
+[1m### Processed [SPELL] files[0m
+- Using [misspell v0.3.4] https://megalinter.github.io/v5/descriptors/spell_misspell
+- MegaLinter key: [SPELL_MISSPELL]
+- Rules config: identified by [misspell]
+[misspell] .cspell.json
+[misspell] .github/workflows/mega-linter.yml
+[misspell] .gitignore
+[misspell] .jscpd.json
+[36m[misspell] .mega-linter.yml - FIXED[0m
+[36m[misspell] .travis.yml - FIXED[0m
+[misspell] README.md
+[36m[misspell] craco.config.js - FIXED[0m
+[36m[misspell] package-lock.json - FIXED[0m
+[misspell] package.json
+[misspell] public/index.html
+[misspell] public/manifest.json
+[36m[misspell] src/App.css - FIXED[0m
+[36m[misspell] src/App.js - FIXED[0m
+[36m[misspell] src/App.test.js - FIXED[0m
+[misspell] src/action/actions/index.js
+[misspell] src/action/actions/transitionNext.js
+[misspell] src/action/index.js
+[36m[misspell] src/components/nextAction/index.js - FIXED[0m
+[36m[misspell] src/components/nextAction/nextAction.js - FIXED[0m
+[36m[misspell] src/components/three/gridNoise/README.md - FIXED[0m
+[36m[misspell] src/components/three/gridNoise/grid.js - FIXED[0m
+[36m[misspell] src/components/three/gridNoise/gridScene.js - FIXED[0m
+[36m[misspell] src/components/three/gridNoise/index.js - FIXED[0m
+[36m[misspell] src/components/three/gridNoise/initHelpers.js - FIXED[0m
+[36m[misspell] src/components/three/lava/fragmentShader.js - FIXED[0m
+[36m[misspell] src/components/three/lava/index.js - FIXED[0m
+[36m[misspell] src/components/three/lava/lavaComponent.js - FIXED[0m
+[36m[misspell] src/components/three/lava/lavaJsShader.js - FIXED[0m
+[36m[misspell] src/components/three/lava/vertexShader.js - FIXED[0m
+[misspell] src/components/three/particleText/box.js
+[36m[misspell] src/components/three/particleText/index.js - FIXED[0m
+[36m[misspell] src/components/three/particleText/ocean.js - FIXED[0m
+[36m[misspell] src/components/three/particleText/particleComponent.js - FIXED[0m
+[36m[misspell] src/components/three/particleText/plane.js - FIXED[0m
+[36m[misspell] src/components/three/shaders/lava.js - FIXED[0m
+[36m[misspell] src/components/three/shaders/lava2.js - FIXED[0m
+[misspell] src/components/three/shaders/water.js
+[36m[misspell] src/index.css - FIXED[0m
+[36m[misspell] src/index.js - FIXED[0m
+[36m[misspell] src/lib/noise.js - FIXED[0m
+[misspell] src/lib/pageState/PageState.js
+[misspell] src/lib/pageState/index.js
+[36m[misspell] src/reducer/counter.js - FIXED[0m
+[36m[misspell] src/reducer/index.js - FIXED[0m
+[36m[misspell] src/reducer/isLogged.js - FIXED[0m
+[36m[misspell] src/reportWebVitals.js - FIXED[0m
+[36m[misspell] src/setupTests.js - FIXED[0m
+[36m[misspell] tailwind.config.js - FIXED[0m
+[32m✅ Linted [SPELL] files with [misspell] successfully - (1.56s)[0m
+[Text Reporter] Generated TEXT report: /tmp/lint/report/linters_logs/SUCCESS-SPELL_MISSPELL.log
+
+[1m### Processed [CREDENTIALS] files[0m
+- Using [secretlint v4.1.0] https://megalinter.github.io/v5/descriptors/credentials_secretlint
+- MegaLinter key: [CREDENTIALS_SECRETLINT]
+- Rules config: [.secretlintrc.json]
+[32m✅ Linted [CREDENTIALS] files with [secretlint] successfully - (1.2s)[0m
+[Text Reporter] Generated TEXT report: /tmp/lint/report/linters_logs/SUCCESS-CREDENTIALS_SECRETLINT.log
+
+[1m### Processed [HTML] files[0m
+- Using [htmlhint v0.16.1] https://megalinter.github.io/v5/descriptors/html_htmlhint
+- MegaLinter key: [HTML_HTMLHINT]
+- Rules config: [.htmlhintrc]
+[htmlhint] public/index.html - SUCCESS - 0 error(s)
+[32m✅ Linted [HTML] files with [htmlhint] successfully - (1.47s)[0m
+[Text Reporter] Generated TEXT report: /tmp/lint/report/linters_logs/SUCCESS-HTML_HTMLHINT.log
+
+[1m### Processed [MARKDOWN] files[0m
+- Using [markdownlint v0.29.0] https://megalinter.github.io/v5/descriptors/markdown_markdownlint
+- MegaLinter key: [MARKDOWN_MARKDOWNLINT]
+- Rules config: [.markdown-lint.json]
+[markdownlint] README.md
+[36m[markdownlint] src/components/three/gridNoise/README.md - FIXED[0m
+--Error detail:
+/tmp/lint/src/components/three/gridNoise/README.md:1 MD041/first-line-heading/first-line-h1 First line in a file should be a top-level heading [Context: "The following component declar..."]
+
+[33m✅ Linted [MARKDOWN] files with [markdownlint]: Found 1 non blocking error(s) - (1.74s)[0m
+[Text Reporter] Generated TEXT report: /tmp/lint/report/linters_logs/ERROR-MARKDOWN_MARKDOWNLINT.log
+
+[1m### Processed [COPYPASTE] files[0m
+- Using [jscpd v3.3.26] https://megalinter.github.io/v5/descriptors/copypaste_jscpd
+- MegaLinter key: [COPYPASTE_JSCPD]
+- Rules config: [.jscpd.json]
+[32m✅ Linted [COPYPASTE] files with [jscpd] successfully - (2.22s)[0m
+[Text Reporter] Generated TEXT report: /tmp/lint/report/linters_logs/SUCCESS-COPYPASTE_JSCPD.log
+
+[1m### Processed [YAML] files[0m
+- Using [prettier v2.4.1] https://megalinter.github.io/v5/descriptors/yaml_prettier
+- MegaLinter key: [YAML_PRETTIER]
+- Rules config: identified by [prettier]
+[prettier] .github/workflows/mega-linter.yml
+[36m[prettier] .mega-linter.yml - FIXED[0m
+[36m[prettier] .travis.yml - FIXED[0m
+[32m✅ Linted [YAML] files with [prettier] successfully - (2.64s)[0m
+[Text Reporter] Generated TEXT report: /tmp/lint/report/linters_logs/SUCCESS-YAML_PRETTIER.log
+
+[1m### Processed [CSS] files[0m
+- Using [stylelint v14.1.0] https://megalinter.github.io/v5/descriptors/css_stylelint
+- MegaLinter key: [CSS_STYLELINT]
+- Rules config: [.stylelintrc.json]
+[31m[36m[stylelint] src/App.css - ERROR - 1 error(s) - FIXED[0m[0m
+[31m--Error detail:
+
+[4mtmp/lint/src/App.css[24m
+  [2m1:1[22m   [31m[31m✖[39m  Expected class selector to be kebab-case  [2mselector-class-pattern[22m
+  [2m6:1[22m   [31m[31m✖[39m  Expected class selector to be kebab-case  [2mselector-class-pattern[22m
+ [2m12:3[22m   [31m[31m✖[39m  Expected class selector to be kebab-case  [2mselector-class-pattern[22m
+ [2m17:1[22m   [31m[31m✖[39m  Expected class selector to be kebab-case  [2mselector-class-pattern[22m
+ [2m28:1[22m   [31m[31m✖[39m  Expected class selector to be kebab-case  [2mselector-class-pattern[22m
+ [2m32:12[22m  [31m[31m✖[39m  Expected keyframe name to be kebab-case   [2mkeyframes-name-pattern[22m
+
+[0m
+[31m[36m[stylelint] src/index.css - ERROR - 1 error(s) - FIXED[0m[0m
+[31m--Error detail:
+
+[4mtmp/lint/src/index.css[24m
+  [2m1:1[22m   [31m[31m✖[39m  Unexpected unknown at-rule "@tailwind"             [2mat-rule-no-unknown[22m              
+  [2m2:1[22m   [31m[31m✖[39m  Unexpected unknown at-rule "@tailwind"             [2mat-rule-no-unknown[22m              
+  [2m3:1[22m   [31m[31m✖[39m  Unexpected unknown at-rule "@tailwind"             [2mat-rule-no-unknown[22m              
+ [2m13:1[22m   [31m[31m✖[39m  Unexpected unknown at-rule "@layer"                [2mat-rule-no-unknown[22m              
+ [2m49:23[22m  [31m[31m✖[39m  Unexpected unknown pseudo-class selector ":first"  [2mselector-pseudo-class-no-unknown[22m
+
+[0m
+[31m❌ Linted [CSS] files with [stylelint]: Found 2 error(s) - (4.2s)[0m
+[Text Reporter] Generated TEXT report: /tmp/lint/report/linters_logs/ERROR-CSS_STYLELINT.log
+
+[1m### Processed [YAML] files[0m
+- Using [yamllint v1.26.3] https://megalinter.github.io/v5/descriptors/yaml_yamllint
+- MegaLinter key: [YAML_YAMLLINT]
+- Rules config: [.yamllint.yml]
+[yamllint] .github/workflows/mega-linter.yml
+[yamllint] .mega-linter.yml
+[yamllint] .travis.yml
+[32m✅ Linted [YAML] files with [yamllint] successfully - (1.29s)[0m
+[Text Reporter] Generated TEXT report: /tmp/lint/report/linters_logs/SUCCESS-YAML_YAMLLINT.log
+
+[1m### Processed [SPELL] files[0m
+- Using [cspell v5.13.0] https://megalinter.github.io/v5/descriptors/spell_cspell
+- MegaLinter key: [SPELL_CSPELL]
+- Rules config: [.cspell.json]
+[cspell] .cspell.json
+[cspell] .github/workflows/mega-linter.yml
+[cspell] .gitignore
+[cspell] .jscpd.json
+[cspell] .mega-linter.yml
+[cspell] .travis.yml
+[cspell] README.md
+[cspell] craco.config.js
+[cspell] package-lock.json
+[cspell] package.json
+[cspell] public/index.html
+[cspell] public/manifest.json
+[cspell] src/App.css
+[cspell] src/App.js
+[cspell] src/App.test.js
+[cspell] src/action/actions/index.js
+[cspell] src/action/actions/transitionNext.js
+[cspell] src/action/index.js
+[cspell] src/components/nextAction/index.js
+[cspell] src/components/nextAction/nextAction.js
+[cspell] src/components/three/gridNoise/README.md
+[cspell] src/components/three/gridNoise/grid.js
+[cspell] src/components/three/gridNoise/gridScene.js
+[cspell] src/components/three/gridNoise/index.js
+[cspell] src/components/three/gridNoise/initHelpers.js
+[cspell] src/components/three/lava/fragmentShader.js
+[cspell] src/components/three/lava/index.js
+[cspell] src/components/three/lava/lavaComponent.js
+[cspell] src/components/three/lava/lavaJsShader.js
+[cspell] src/components/three/lava/vertexShader.js
+[cspell] src/components/three/particleText/box.js
+[cspell] src/components/three/particleText/index.js
+[cspell] src/components/three/particleText/ocean.js
+[cspell] src/components/three/particleText/particleComponent.js
+[cspell] src/components/three/particleText/plane.js
+[cspell] src/components/three/shaders/lava.js
+[cspell] src/components/three/shaders/lava2.js
+[cspell] src/components/three/shaders/water.js
+[cspell] src/index.css
+[cspell] src/index.js
+[cspell] src/lib/noise.js
+[cspell] src/lib/pageState/PageState.js
+[cspell] src/lib/pageState/index.js
+[cspell] src/reducer/counter.js
+[cspell] src/reducer/index.js
+[cspell] src/reducer/isLogged.js
+[cspell] src/reportWebVitals.js
+[cspell] src/setupTests.js
+[cspell] tailwind.config.js
+--Error detail:
+ 1/48 ./tmp/lint/.cspell.json 744.24ms X
+/tmp/lint/.cspell.json:9:6 - Unknown word (megalinter)
+ 2/48 ./tmp/lint/.github/workflows/mega-linter.yml 119.38ms X
+/tmp/lint/.github/workflows/mega-linter.yml:79:15 - Unknown word (stefanzweifel)
+ 3/48 ./tmp/lint/.gitignore 11.21ms
+ 4/48 ./tmp/lint/.jscpd.json 12.14ms X
+/tmp/lint/.jscpd.json:8:10 - Unknown word (venv)
+ 5/48 ./tmp/lint/.mega-linter.yml 20.98ms
+ 6/48 ./tmp/lint/.travis.yml 9.29ms
+ 7/48 ./tmp/lint/README.md 85.17ms
+ 8/48 ./tmp/lint/craco.config.js 51.06ms X
+/tmp/lint/craco.config.js:5:18 - Unknown word (tailwindcss)
+ 9/48 ./tmp/lint/package.json 42.09ms X
+/tmp/lint/package.json:6:7 - Unknown word (craco)
+/tmp/lint/package.json:6:13 - Unknown word (craco)
+/tmp/lint/package.json:8:19 - Unknown word (drei)
+/tmp/lint/package.json:13:19 - Unknown word (glsl)
+/tmp/lint/package.json:14:6 - Unknown word (glsl)
+/tmp/lint/package.json:15:6 - Unknown word (glslify)
+/tmp/lint/package.json:16:6 - Unknown word (gsap)
+/tmp/lint/package.json:28:15 - Unknown word (craco)
+/tmp/lint/package.json:29:15 - Unknown word (craco)
+/tmp/lint/package.json:39:4 - Unknown word (browserslist)
+/tmp/lint/package.json:55:6 - Unknown word (tailwindcss)
+/tmp/lint/package.json:55:26 - Unknown word (tailwindcss)
+/tmp/lint/package.json:55:47 - Unknown word (compat)
+10/48 ./tmp/lint/public/index.html 77.54ms X
+/tmp/lint/public/index.html:36:19 - Unknown word (webfonts)
+11/48 ./tmp/lint/public/manifest.json 10.21ms
+12/48 ./tmp/lint/src/App.css 30.39ms
+13/48 ./tmp/lint/src/App.js 25.68ms X
+/tmp/lint/src/App.js:3:8 - Unknown word (Sider)
+/tmp/lint/src/App.js:6:47 - Unknown word (threescene)
+/tmp/lint/src/App.js:9:18 - Unknown word (Polytope)
+/tmp/lint/src/App.js:18:8 - Unknown word (Sider)
+/tmp/lint/src/App.js:22:15 - Unknown word (Polytope)
+14/48 ./tmp/lint/src/App.test.js 9.35ms
+15/48 ./tmp/lint/src/action/actions/index.js 48.16ms
+16/48 ./tmp/lint/src/action/actions/transitionNext.js 10.02ms
+17/48 ./tmp/lint/src/action/index.js 4.61ms
+18/48 ./tmp/lint/src/components/nextAction/index.js 29.27ms
+19/48 ./tmp/lint/src/components/nextAction/nextAction.js 19.73ms
+20/48 ./tmp/lint/src/components/three/gridNoise/README.md 72.14ms X
+/tmp/lint/src/components/three/gridNoise/README.md:1:48 - Unknown word (inspireed)
+/tmp/lint/src/components/three/gridNoise/README.md:1:64 - Unknown word (Alvan)
+/tmp/lint/src/components/three/gridNoise/README.md:1:76 - Unknown word (Arulandu)
+21/48 ./tmp/lint/src/components/three/gridNoise/grid.js 41.17ms X
+/tmp/lint/src/components/three/gridNoise/grid.js:12:18 - Unknown word (XYZT)
+/tmp/lint/src/components/three/gridNoise/grid.js:24:10 - Unknown word (XYZT)
+/tmp/lint/src/components/three/gridNoise/grid.js:33:67 - Unknown word (XYZT)
+/tmp/lint/src/components/three/gridNoise/grid.js:34:42 - Unknown word (XYZT)
+/tmp/lint/src/components/three/gridNoise/grid.js:84:9 - Unknown word (wireframe)
+22/48 ./tmp/lint/src/components/three/gridNoise/gridScene.js 22.51ms X
+/tmp/lint/src/components/three/gridNoise/gridScene.js:3:17 - Unknown word (perlin)
+/tmp/lint/src/components/three/gridNoise/gridScene.js:15:11 - Unknown word (lacunarity)
+/tmp/lint/src/components/three/gridNoise/gridScene.js:22:22 - Unknown word (perlin)
+/tmp/lint/src/components/three/gridNoise/gridScene.js:24:15 - Unknown word (lacunarity)
+/tmp/lint/src/components/three/gridNoise/gridScene.js:33:16 - Unknown word (XYZT)
+/tmp/lint/src/components/three/gridNoise/gridScene.js:57:18 - Unknown word (XYZT)
+/tmp/lint/src/components/three/gridNoise/gridScene.js:57:31 - Unknown word (XYZT)
+23/48 ./tmp/lint/src/components/three/gridNoise/index.js 9.57ms
+24/48 ./tmp/lint/src/components/three/gridNoise/initHelpers.js 20.55ms X
+/tmp/lint/src/components/three/gridNoise/initHelpers.js:8:30 - Unknown word (XYZT)
+/tmp/lint/src/components/three/gridNoise/initHelpers.js:12:73 - Unknown word (XYZT)
+/tmp/lint/src/components/three/gridNoise/initHelpers.js:21:28 - Unknown word (XYZT)
+25/48 ./tmp/lint/src/components/three/lava/fragmentShader.js 40.34ms
+26/48 ./tmp/lint/src/components/three/lava/index.js 7.63ms
+27/48 ./tmp/lint/src/components/three/lava/lavaComponent.js 30.33ms X
+/tmp/lint/src/components/three/lava/lavaComponent.js:3:53 - Unknown word (drei)
+/tmp/lint/src/components/three/lava/lavaComponent.js:7:49 - Unknown word (Phong)
+/tmp/lint/src/components/three/lava/lavaComponent.js:39:12 - Unknown word (Phong)
+28/48 ./tmp/lint/src/components/three/lava/lavaJsShader.js 18.13ms X
+/tmp/lint/src/components/three/lava/lavaJsShader.js:1:46 - Unknown word (drei)
+/tmp/lint/src/components/three/lava/lavaJsShader.js:2:8 - Unknown word (glsl)
+/tmp/lint/src/components/three/lava/lavaJsShader.js:2:32 - Unknown word (glsl)
+/tmp/lint/src/components/three/lava/lavaJsShader.js:12:3 - Unknown word (glsl)
+/tmp/lint/src/components/three/lava/lavaJsShader.js:15:3 - Unknown word (glsl)
+29/48 ./tmp/lint/src/components/three/lava/vertexShader.js 12.90ms
+30/48 ./tmp/lint/src/components/three/particleText/box.js 45.89ms
+31/48 ./tmp/lint/src/components/three/particleText/index.js 15.49ms
+32/48 ./tmp/lint/src/components/three/particleText/ocean.js 25.46ms X
+/tmp/lint/src/components/three/particleText/ocean.js:12:56 - Unknown word (waternormals)
+33/48 ./tmp/lint/src/components/three/particleText/particleComponent.js 30.56ms X
+/tmp/lint/src/components/three/particleText/particleComponent.js:4:74 - Unknown word (drei)
+/tmp/lint/src/components/three/particleText/particleComponent.js:31:18 - Unknown word (lavatile)
+/tmp/lint/src/components/three/particleText/particleComponent.js:51:47 - Unknown word (hotpink)
+34/48 ./tmp/lint/src/components/three/particleText/plane.js 20.44ms X
+/tmp/lint/src/components/three/particleText/plane.js:12:50 - Unknown word (lavatile)
+35/48 ./tmp/lint/src/components/three/shaders/lava.js 36.75ms X
+/tmp/lint/src/components/three/shaders/lava.js:4:46 - Unknown word (drei)
+/tmp/lint/src/components/three/shaders/lava.js:5:8 - Unknown word (glsl)
+/tmp/lint/src/components/three/shaders/lava.js:5:32 - Unknown word (glsl)
+/tmp/lint/src/components/three/shaders/lava.js:23:3 - Unknown word (glsl)
+/tmp/lint/src/components/three/shaders/lava.js:36:3 - Unknown word (glsl)
+36/48 ./tmp/lint/src/components/three/shaders/lava2.js 59.39ms X
+/tmp/lint/src/components/three/shaders/lava2.js:2:46 - Unknown word (drei)
+/tmp/lint/src/components/three/shaders/lava2.js:3:8 - Unknown word (glsl)
+/tmp/lint/src/components/three/shaders/lava2.js:3:32 - Unknown word (glsl)
+/tmp/lint/src/components/three/shaders/lava2.js:10:3 - Unknown word (glsl)
+/tmp/lint/src/components/three/shaders/lava2.js:16:3 - Unknown word (glsl)
+/tmp/lint/src/components/three/shaders/lava2.js:32:11 - Unknown word (snoise)
+/tmp/lint/src/components/three/shaders/lava2.js:85:22 - Unknown word (xzyw)
+/tmp/lint/src/components/three/shaders/lava2.js:85:32 - Unknown word (xzyw)
+/tmp/lint/src/components/three/shaders/lava2.js:85:42 - Unknown word (xxyy)
+/tmp/lint/src/components/three/shaders/lava2.js:86:22 - Unknown word (xzyw)
+/tmp/lint/src/components/three/shaders/lava2.js:86:32 - Unknown word (xzyw)
+/tmp/lint/src/components/three/shaders/lava2.js:86:42 - Unknown word (zzww)
+/tmp/lint/src/components/three/shaders/lava2.js:93:12 - Unknown word (Normalise)
+/tmp/lint/src/components/three/shaders/lava2.js:114:25 - Unknown word (snoise)
+/tmp/lint/src/components/three/shaders/lava2.js:115:25 - Unknown word (snoise)
+/tmp/lint/src/components/three/shaders/lava2.js:116:26 - Unknown word (snoise)
+37/48 ./tmp/lint/src/components/three/shaders/water.js 6.07ms
+38/48 ./tmp/lint/src/index.css 33.85ms X
+/tmp/lint/src/index.css:63:32 - Unknown word (semibold)
+/tmp/lint/src/index.css:82:34 - Unknown word (semibold)
+39/48 ./tmp/lint/src/index.js 26.82ms
+40/48 ./tmp/lint/src/lib/noise.js 112.50ms X
+/tmp/lint/src/lib/noise.js:2:21 - Unknown word (perlin)
+/tmp/lint/src/lib/noise.js:4:36 - Unknown word (Gustavson)
+/tmp/lint/src/lib/noise.js:5:4 - Unknown word (Optimisations)
+/tmp/lint/src/lib/noise.js:6:42 - Unknown word (Gustavson)
+/tmp/lint/src/lib/noise.js:12:11 - Unknown word (Gustavson)
+/tmp/lint/src/lib/noise.js:86:16 - Unknown word (unskewing)
+/tmp/lint/src/lib/noise.js:101:67 - Unknown word (unskewed)
+/tmp/lint/src/lib/noise.js:114:63 - Unknown word (unskewed)
+/tmp/lint/src/lib/noise.js:116:64 - Unknown word (unskewed)
+/tmp/lint/src/lib/noise.js:162:67 - Unknown word (unskewed)
+/tmp/lint/src/lib/noise.js:234:10 - Unknown word (Perlin)
+/tmp/lint/src/lib/noise.js:240:10 - Unknown word (lerp)
+/tmp/lint/src/lib/noise.js:244:7 - Unknown word (Perlin)
+/tmp/lint/src/lib/noise.js:245:7 - Unknown word (perlin)
+/tmp/lint/src/lib/noise.js:263:10 - Unknown word (lerp)
+/tmp/lint/src/lib/noise.js:264:5 - Unknown word (lerp)
+/tmp/lint/src/lib/noise.js:265:5 - Unknown word (lerp)
+/tmp/lint/src/lib/noise.js:269:7 - Unknown word (Perlin)
+/tmp/lint/src/lib/noise.js:270:7 - Unknown word (perlin)
+41/48 ./tmp/lint/src/lib/pageState/PageState.js 34.20ms
+42/48 ./tmp/lint/src/lib/pageState/index.js 6.31ms
+43/48 ./tmp/lint/src/reducer/counter.js 29.92ms
+44/48 ./tmp/lint/src/reducer/index.js 12.10ms
+45/48 ./tmp/lint/src/reducer/isLogged.js 8.74ms
+46/48 ./tmp/lint/src/reportWebVitals.js 8.93ms X
+/tmp/lint/src/reportWebVitals.js:3:69 - Unknown word (TTFB)
+/tmp/lint/src/reportWebVitals.js:8:10 - Unknown word (TTFB)
+47/48 ./tmp/lint/src/setupTests.js 11.16ms
+48/48 ./tmp/lint/tailwind.config.js 7.69ms
+CSpell: Files checked: 48, Issues found: 98 in 21 files
+
+[31m❌ Linted [SPELL] files with [cspell]: Found 98 error(s) - (3.96s)[0m
+[Text Reporter] Generated TEXT report: /tmp/lint/report/linters_logs/ERROR-SPELL_CSPELL.log
+
+[1m### Processed [JSON] files[0m
+- Using [jsonlint v1.6.3] https://megalinter.github.io/v5/descriptors/json_jsonlint
+- MegaLinter key: [JSON_JSONLINT]
+- Rules config: identified by [jsonlint]
+[jsonlint] .cspell.json - SUCCESS - 0 error(s)
+[jsonlint] .jscpd.json - SUCCESS - 0 error(s)
+[jsonlint] package-lock.json - SUCCESS - 0 error(s)
+[jsonlint] package.json - SUCCESS - 0 error(s)
+[jsonlint] public/manifest.json - SUCCESS - 0 error(s)
+[32m✅ Linted [JSON] files with [jsonlint] successfully - (6.78s)[0m
+[Text Reporter] Generated TEXT report: /tmp/lint/report/linters_logs/SUCCESS-JSON_JSONLINT.log
+
+[1m### Processed [YAML] files[0m
+- Using [v8r v0.6.1] https://megalinter.github.io/v5/descriptors/yaml_v8r
+- MegaLinter key: [YAML_V8R]
+- Rules config: identified by [v8r]
+[v8r] .github/workflows/mega-linter.yml - SUCCESS - 0 error(s)
+[v8r] .mega-linter.yml - SUCCESS - 0 error(s)
+[v8r] .travis.yml - SUCCESS - 0 error(s)
+[32m✅ Linted [YAML] files with [v8r] successfully - (6.35s)[0m
+[Text Reporter] Generated TEXT report: /tmp/lint/report/linters_logs/SUCCESS-YAML_V8R.log
+
+[1m### Processed [MARKDOWN] files[0m
+- Using [markdown-link-check v0.0.0] https://megalinter.github.io/v5/descriptors/markdown_markdown_link_check
+- MegaLinter key: [MARKDOWN_MARKDOWN_LINK_CHECK]
+- Rules config: [.markdown-link-check.json]
+[31m[markdown-link-check] README.md - ERROR - 1 error(s)[0m
+[31m--Error detail:
+
+FILE: /tmp/lint/README.md
+[✓] https://github.com/facebook/create-react-app
+[✖] http://localhost:3000
+[✓] https://facebook.github.io/create-react-app/docs/running-tests
+[✓] https://facebook.github.io/create-react-app/docs/deployment
+[✓] https://facebook.github.io/create-react-app/docs/getting-started
+[✓] https://reactjs.org/
+[✓] https://facebook.github.io/create-react-app/docs/code-splitting
+[✓] https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+[✓] https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+[✓] https://facebook.github.io/create-react-app/docs/advanced-configuration
+[✓] https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+11 links checked.
+
+ERROR: 1 dead links found!
+[✖] http://localhost:3000 → Status: 0
+[0m
+[markdown-link-check] src/components/three/gridNoise/README.md - SUCCESS - 0 error(s)
+[31m❌ Linted [MARKDOWN] files with [markdown-link-check]: Found 1 error(s) - (10.22s)[0m
+[Text Reporter] Generated TEXT report: /tmp/lint/report/linters_logs/ERROR-MARKDOWN_MARKDOWN_LINK_CHECK.log
+
+[1m### Processed [MARKDOWN] files[0m
+- Using [markdown-table-formatter v1.2.0] https://megalinter.github.io/v5/descriptors/markdown_markdown_table_formatter
+- MegaLinter key: [MARKDOWN_MARKDOWN_TABLE_FORMATTER]
+- Rules config: identified by [markdown-table-formatter]
+[markdown-table-formatter] README.md
+[36m[markdown-table-formatter] src/components/three/gridNoise/README.md - FIXED[0m
+[32m✅ Linted [MARKDOWN] files with [markdown-table-formatter] successfully - (1.15s)[0m
+[Text Reporter] Generated TEXT report: /tmp/lint/report/linters_logs/SUCCESS-MARKDOWN_MARKDOWN_TABLE_FORMATTER.log
+
+[1m### Processed [JSON] files[0m
+- Using [eslint-plugin-jsonc v2.0.0] https://megalinter.github.io/v5/descriptors/json_eslint_plugin_jsonc
+- MegaLinter key: [JSON_ESLINT_PLUGIN_JSONC]
+- Rules config: [.eslintrc-json.json]
+[eslint-plugin-jsonc] .cspell.json
+[eslint-plugin-jsonc] .jscpd.json
+[36m[eslint-plugin-jsonc] package-lock.json - FIXED[0m
+[eslint-plugin-jsonc] package.json
+[eslint-plugin-jsonc] public/manifest.json
+[32m✅ Linted [JSON] files with [eslint-plugin-jsonc] successfully - (2.35s)[0m
+[Text Reporter] Generated TEXT report: /tmp/lint/report/linters_logs/SUCCESS-JSON_ESLINT_PLUGIN_JSONC.log
+
+[1m### Processed [JSON] files[0m
+- Using [v8r v0.6.1] https://megalinter.github.io/v5/descriptors/json_v8r
+- MegaLinter key: [JSON_V8R]
+- Rules config: identified by [v8r]
+[v8r] .cspell.json - SUCCESS - 0 error(s)
+[v8r] .jscpd.json - SUCCESS - 0 error(s)
+[v8r] package-lock.json - SUCCESS - 0 error(s)
+[v8r] package.json - SUCCESS - 0 error(s)
+[v8r] public/manifest.json - SUCCESS - 0 error(s)
+[32m✅ Linted [JSON] files with [v8r] successfully - (9.06s)[0m
+[Text Reporter] Generated TEXT report: /tmp/lint/report/linters_logs/SUCCESS-JSON_V8R.log
+
+[1m### Processed [JSON] files[0m
+- Using [prettier v2.4.1] https://megalinter.github.io/v5/descriptors/json_prettier
+- MegaLinter key: [JSON_PRETTIER]
+- Rules config: identified by [prettier]
+[prettier] .cspell.json
+[prettier] .jscpd.json
+[36m[prettier] package-lock.json - FIXED[0m
+[prettier] package.json
+[prettier] public/manifest.json
+[32m✅ Linted [JSON] files with [prettier] successfully - (2.23s)[0m
+[Text Reporter] Generated TEXT report: /tmp/lint/report/linters_logs/SUCCESS-JSON_PRETTIER.log
+
+[1m### Processed [JAVASCRIPT] files[0m
+- Using [standard v15.0.1] https://megalinter.github.io/v5/descriptors/javascript_standard
+- MegaLinter key: [JAVASCRIPT_STANDARD]
+- Rules config: identified by [standard]
+[36m[standard] craco.config.js - SUCCESS - 0 error(s) - FIXED[0m
+[36m[standard] src/App.js - SUCCESS - 0 error(s) - FIXED[0m
+[31m[36m[standard] src/App.test.js - ERROR - 1 error(s) - FIXED[0m[0m
+[31m--Error detail:
+standard: Use JavaScript Standard Style (https://standardjs.com)
+  /tmp/lint/src/App.test.js:4:1: 'test' is not defined.
+[0m
+[standard] src/action/actions/index.js - SUCCESS - 0 error(s)
+[standard] src/action/actions/transitionNext.js - SUCCESS - 0 error(s)
+[standard] src/action/index.js - SUCCESS - 0 error(s)
+[36m[standard] src/components/nextAction/index.js - SUCCESS - 0 error(s) - FIXED[0m
+[36m[standard] src/components/nextAction/nextAction.js - SUCCESS - 0 error(s) - FIXED[0m
+[36m[standard] src/components/three/gridNoise/grid.js - SUCCESS - 0 error(s) - FIXED[0m
+[36m[standard] src/components/three/gridNoise/gridScene.js - SUCCESS - 0 error(s) - FIXED[0m
+[36m[standard] src/components/three/gridNoise/index.js - SUCCESS - 0 error(s) - FIXED[0m
+[36m[standard] src/components/three/gridNoise/initHelpers.js - SUCCESS - 0 error(s) - FIXED[0m
+[36m[standard] src/components/three/lava/fragmentShader.js - SUCCESS - 0 error(s) - FIXED[0m
+[36m[standard] src/components/three/lava/index.js - SUCCESS - 0 error(s) - FIXED[0m
+[31m[36m[standard] src/components/three/lava/lavaComponent.js - ERROR - 1 error(s) - FIXED[0m[0m
+[31m--Error detail:
+standard: Use JavaScript Standard Style (https://standardjs.com)
+  /tmp/lint/src/components/three/lava/lavaComponent.js:1:27: 'useEffect' is defined but never used.
+  /tmp/lint/src/components/three/lava/lavaComponent.js:2:18: 'extend' is defined but never used.
+  /tmp/lint/src/components/three/lava/lavaComponent.js:2:26: 'useFrame' is defined but never used.
+  /tmp/lint/src/components/three/lava/lavaComponent.js:2:36: 'useLoader' is defined but never used.
+  /tmp/lint/src/components/three/lava/lavaComponent.js:4:10: 'TextureLoader' is defined but never used.
+  /tmp/lint/src/components/three/lava/lavaComponent.js:5:13: 'THREE' is defined but never used.
+  /tmp/lint/src/components/three/lava/lavaComponent.js:6:8: 'LavaShader' is defined but never used.
+  /tmp/lint/src/components/three/lava/lavaComponent.js:7:10: 'AmbientLight' is defined but never used.
+  /tmp/lint/src/components/three/lava/lavaComponent.js:7:24: 'PlaneBufferGeometry' is defined but never used.
+  /tmp/lint/src/components/three/lava/lavaComponent.js:7:45: 'MeshPhongMaterial' is defined but never used.
+  /tmp/lint/src/components/three/lava/lavaComponent.js:34:9: 'meshRef' is assigned a value but never used.
+[0m
+[36m[standard] src/components/three/lava/lavaJsShader.js - SUCCESS - 0 error(s) - FIXED[0m
+[36m[standard] src/components/three/lava/vertexShader.js - SUCCESS - 0 error(s) - FIXED[0m
+[standard] src/components/three/particleText/box.js - SUCCESS - 0 error(s)
+[36m[standard] src/components/three/particleText/index.js - SUCCESS - 0 error(s) - FIXED[0m
+[36m[standard] src/components/three/particleText/ocean.js - SUCCESS - 0 error(s) - FIXED[0m
+[31m[36m[standard] src/components/three/particleText/particleComponent.js - ERROR - 1 error(s) - FIXED[0m[0m
+[31m--Error detail:
+standard: Use JavaScript Standard Style (https://standardjs.com)
+  /tmp/lint/src/components/three/particleText/particleComponent.js:1:18: 'extend' is defined but never used.
+  /tmp/lint/src/components/three/particleText/particleComponent.js:4:18: 'shaderMaterial' is defined but never used.
+[0m
+[36m[standard] src/components/three/particleText/plane.js - SUCCESS - 0 error(s) - FIXED[0m
+[31m[36m[standard] src/components/three/shaders/lava.js - ERROR - 1 error(s) - FIXED[0m[0m
+[31m--Error detail:
+standard: Use JavaScript Standard Style (https://standardjs.com)
+  /tmp/lint/src/components/three/shaders/lava.js:1:10: 'Canvas' is defined but never used.
+  /tmp/lint/src/components/three/shaders/lava.js:1:26: 'useLoader' is defined but never used.
+  /tmp/lint/src/components/three/shaders/lava.js:1:37: 'useThree' is defined but never used.
+  /tmp/lint/src/components/three/shaders/lava.js:1:47: 'useFrame' is defined but never used.
+  /tmp/lint/src/components/three/shaders/lava.js:2:8: 'React' is defined but never used.
+  /tmp/lint/src/components/three/shaders/lava.js:2:17: 'Suspense' is defined but never used.
+  /tmp/lint/src/components/three/shaders/lava.js:2:27: 'useEffect' is defined but never used.
+  /tmp/lint/src/components/three/shaders/lava.js:2:38: 'useRef' is defined but never used.
+  /tmp/lint/src/components/three/shaders/lava.js:2:46: 'useState' is defined but never used.
+  /tmp/lint/src/components/three/shaders/lava.js:2:56: 'useMemo' is defined but never used.
+[0m
+[36m[standard] src/components/three/shaders/lava2.js - SUCCESS - 0 error(s) - FIXED[0m
+[standard] src/components/three/shaders/water.js - SUCCESS - 0 error(s)
+[36m[standard] src/index.js - SUCCESS - 0 error(s) - FIXED[0m
+[36m[standard] src/lib/noise.js - SUCCESS - 0 error(s) - FIXED[0m
+[31m[standard] src/lib/pageState/PageState.js - ERROR - 1 error(s)[0m
+[31m--Error detail:
+standard: Use JavaScript Standard Style (https://standardjs.com)
+  /tmp/lint/src/lib/pageState/PageState.js:1:7: 'Node' is defined but never used.
+[0m
+[standard] src/lib/pageState/index.js - SUCCESS - 0 error(s)
+[36m[standard] src/reducer/counter.js - SUCCESS - 0 error(s) - FIXED[0m
+[36m[standard] src/reducer/index.js - SUCCESS - 0 error(s) - FIXED[0m
+[36m[standard] src/reducer/isLogged.js - SUCCESS - 0 error(s) - FIXED[0m
+[36m[standard] src/reportWebVitals.js - SUCCESS - 0 error(s) - FIXED[0m
+[36m[standard] src/setupTests.js - SUCCESS - 0 error(s) - FIXED[0m
+[36m[standard] tailwind.config.js - SUCCESS - 0 error(s) - FIXED[0m
+[31m❌ Linted [JAVASCRIPT] files with [standard]: Found 5 error(s) - (73.41s)[0m
+[Text Reporter] Generated TEXT report: /tmp/lint/report/linters_logs/ERROR-JAVASCRIPT_STANDARD.log
+
++----SUMMARY-----+--------------------------+---------------+-------+-------+--------+--------------+
+| Descriptor     | Linter                   | Mode          | Files | Fixed | Errors | Elapsed time |
++----------------+--------------------------+---------------+-------+-------+--------+--------------+
+| ✅ ACTION      | actionlint               | list_of_files |     1 |       |      0 |        1.42s |
+| ✅ COPYPASTE   | jscpd                    | project       |   n/a |       |      0 |        2.22s |
+| ✅ CREDENTIALS | secretlint               | project       |   n/a |       |      0 |         1.2s |
+| ❌ CSS         | stylelint                | file          |     2 |     2 |      2 |         4.2s |
+| ✅ GIT         | git_diff                 | project       |   n/a |       |      0 |        0.74s |
+| ✅ HTML        | htmlhint                 | file          |     1 |       |      0 |        1.47s |
+| ❌ JAVASCRIPT  | standard                 | file          |    35 |    28 |      5 |       73.41s |
+| ✅ JSON        | eslint-plugin-jsonc      | list_of_files |     5 |     1 |      0 |        2.35s |
+| ✅ JSON        | jsonlint                 | file          |     5 |       |      0 |        6.78s |
+| ✅ JSON        | prettier                 | list_of_files |     5 |     1 |      0 |        2.23s |
+| ✅ JSON        | v8r                      | file          |     5 |       |      0 |        9.06s |
+| ◬ MARKDOWN     | markdownlint             | list_of_files |     2 |     1 |      1 |        1.74s |
+| ❌ MARKDOWN    | markdown-link-check      | file          |     2 |       |      1 |       10.22s |
+| ✅ MARKDOWN    | markdown-table-formatter | list_of_files |     2 |     1 |      0 |        1.15s |
+| ❌ SPELL       | cspell                   | list_of_files |    49 |       |     98 |        3.96s |
+| ✅ SPELL       | misspell                 | list_of_files |    49 |    34 |      0 |        1.56s |
+| ✅ YAML        | prettier                 | list_of_files |     3 |     2 |      0 |        2.64s |
+| ✅ YAML        | v8r                      | file          |     3 |       |      0 |        6.35s |
+| ✅ YAML        | yamllint                 | list_of_files |     3 |       |      0 |        1.29s |
++----------------+--------------------------+---------------+-------+-------+--------+--------------+
+
+[34mYou could have same capabilities but better runtime performances if you use a MegaLinter flavor:[0m
+- [javascript] megalinter/megalinter/flavors/javascript@v5 (49 linters) https://megalinter.github.io/flavors/javascript/
+
+[File.io Reporter] Reports are available at https://file.io/OkShOV4SDwcz
+[GitHub Comment Reporter] No GitHub Token found, so skipped post of PR comment
+[Updated Sources Reporter] copied 34 fixed source files in folder /tmp/lint/report/updated_sources.
+Download it from artifacts then copy-paste it in your local repo to apply linters updates
+[31m❌ Error(s) have been found during linting[0m
+To disable linters or customize their checks, you can use a .mega-linter.yml file at the root of your repository
+More info at https://megalinter.github.io/configuration/

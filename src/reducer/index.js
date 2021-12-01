@@ -3,13 +3,11 @@
  * redux store.
  */
 
-import counterReducer from './counter'
-import isLoggedReducer from './isLogged'
-import { combineReducers } from 'redux'
+import { combineReducers } from 'redux';
+import pageStateReducer from './pageStateReducer.js';
 
 const allReducers = combineReducers({
-  counter: counterReducer,
-  logged: isLoggedReducer
+  pageState : pageStateReducer,
 })
 
-export default allReducers
+export default allReducers;

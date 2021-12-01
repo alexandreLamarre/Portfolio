@@ -1,10 +1,11 @@
-import React, { Suspense, useEffect, useRef } from 'react'
-import { Canvas, extend, useFrame, useLoader } from '@react-three/fiber'
-import { Loader, OrbitControls } from '@react-three/drei'
-import { TextureLoader } from 'three/src/loaders/TextureLoader'
-import * as THREE from 'three'
-import LavaShader from './lavaJsShader'
-import { AmbientLight, PlaneBufferGeometry, MeshPhongMaterial } from 'three'
+import React, { Suspense, useRef } from 'react';
+import {Canvas} from  '@react-three/fiber';
+// import { Canvas, extend, useFrame, useLoader } from '@react-three/fiber'
+import { Loader, OrbitControls } from '@react-three/drei';
+// import { TextureLoader } from 'three/src/loaders/TextureLoader'
+// import * as THREE from 'three'
+// import LavaShader from './lavaJsShader'
+// import { AmbientLight, PlaneBufferGeometry, MeshPhongMaterial } from 'three'
 
 // function Lava(props){
 //     const mesh = useRef();
@@ -31,7 +32,7 @@ import { AmbientLight, PlaneBufferGeometry, MeshPhongMaterial } from 'three'
 // };
 
 function Plane (props) {
-  const meshRef = useRef()
+  // const meshRef = useRef()
 
   return (
     <mesh {...props}>

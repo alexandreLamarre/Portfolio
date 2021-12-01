@@ -1,6 +1,6 @@
-import thunk from 'redux-thunk';
-import { createStore, applyMiddleware } from 'redux';
-import allReducers from '../reducer';
+import thunk from 'redux-thunk'
+import { createStore, applyMiddleware } from 'redux'
+import allReducers from '../reducer'
 
 /**
  * Redux store for our webapp
@@ -9,10 +9,9 @@ import allReducers from '../reducer';
  *
  */
 const store = createStore(
-    allReducers,
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-    applyMiddleware(thunk)
-);
+  allReducers,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+  applyMiddleware(thunk)
+)
 
-export default store;
-  
+export default store

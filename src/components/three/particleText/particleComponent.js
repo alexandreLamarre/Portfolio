@@ -1,8 +1,8 @@
 import { Canvas, useFrame } from '@react-three/fiber'
-//import { Canvas, extend, useFrame } from '@react-three/fiber'
+// import { Canvas, extend, useFrame } from '@react-three/fiber'
 import React, { Suspense, useRef, useState } from 'react'
 import { Loader, OrbitControls, Sky } from '@react-three/drei'
-//import { Loader, shaderMaterial, OrbitControls, Sky } from '@react-three/drei'
+// import { Loader, shaderMaterial, OrbitControls, Sky } from '@react-three/drei'
 import Ocean from './ocean'
 // import LavaMaterial from "../shaders/lava";
 // import LavaMaterial2 from "../shaders/lava2";

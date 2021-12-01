@@ -1,3 +1,3 @@
-import { transitionSelected, transitionNext, transitionPrev } from "./transitions";
+import { transitionSelected, transitionNext, transitionPrev } from './transitions'
 
-export {transitionNext, transitionSelected, transitionPrev}
+export { transitionNext, transitionSelected, transitionPrev }

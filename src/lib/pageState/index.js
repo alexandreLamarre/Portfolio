@@ -1,3 +1,3 @@
-import PageManager from "./pageState";
+import PageManager from './pageState'
 
-export default PageManager;
+export default PageManager

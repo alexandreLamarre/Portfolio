@@ -3,11 +3,11 @@
  * redux store.
  */
 
-import { combineReducers } from 'redux';
-import pageStateReducer from './pageStateReducer.js';
+import { combineReducers } from 'redux'
+import pageStateReducer from './pageStateReducer.js'
 
 const allReducers = combineReducers({
-  pageState : pageStateReducer,
+  pageState: pageStateReducer
 })
 
-export default allReducers;
+export default allReducers

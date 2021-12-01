@@ -1,7 +1,7 @@
-import React, { Suspense } from 'react';
-import {Canvas} from  '@react-three/fiber';
+import React, { Suspense } from 'react'
+import { Canvas } from '@react-three/fiber'
 // import { Canvas, extend, useFrame, useLoader } from '@react-three/fiber'
-import { Loader, OrbitControls } from '@react-three/drei';
+import { Loader, OrbitControls } from '@react-three/drei'
 // import { TextureLoader } from 'three/src/loaders/TextureLoader'
 // import * as THREE from 'three'
 // import LavaShader from './lavaJsShader'

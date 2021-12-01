@@ -3,8 +3,7 @@ import PageManager from "../lib/pageState";
 const pageStateReducer = (state = PageManager.step(0), action) => {
     switch(action.type){
         case "transition-sel":
-            const lookupPageIndex = PageManager.lookup(action.payload);
-            return PageManager.step(lookupPageIndex);
+            return PageManager.step( PageManager.lookup(action.payload));
         case "transition-next":
             try{
                 const nextPage = PageManager.next(state); 

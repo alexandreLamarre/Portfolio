@@ -1,4 +1,5 @@
 import PageManager from './index';
+import { test, expect } from '@jest/globals';
 
 test('Page State Manager Tests - Lookup', () => {
     const n = PageManager.pageArray.length;

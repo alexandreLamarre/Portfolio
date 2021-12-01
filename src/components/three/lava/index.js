@@ -1,3 +1,3 @@
-import Lava from "./lavaComponent";
+import Lava from './lavaComponent'
 
-export default Lava;
+export default Lava

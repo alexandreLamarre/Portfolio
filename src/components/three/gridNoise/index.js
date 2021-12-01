@@ -1,3 +1,3 @@
-import GridScene from "./gridScene";
+import GridScene from './gridScene'
 
-export default GridScene;
+export default GridScene

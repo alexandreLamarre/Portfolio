@@ -9,5 +9,5 @@ void main()
     gl_Position = projectionMatrix * mvPosition;
 
 }
-`;
-export default vertexShader;
+`
+export default vertexShader

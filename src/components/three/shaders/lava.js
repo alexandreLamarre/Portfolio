@@ -1,28 +1,27 @@
-import {Canvas, extend, useLoader, useThree} from "@react-three/fiber";
-import React, {Suspense, useEffect, useRef, useState, useMemo} from 'react';
-import {useFrame} from '@react-three/fiber';
-import { shaderMaterial } from "@react-three/drei";
-import glsl from "babel-plugin-glsl/macro";
-import * as THREE from 'three';
+// import { Canvas, extend, useLoader, useThree, useFrame } from '@react-three/fiber'
+import { extend } from '@react-three/fiber'
+// import React, { Suspense, useEffect, useRef, useState, useMemo } from 'react'
 
-
+import { shaderMaterial } from '@react-three/drei'
+import glsl from 'babel-plugin-glsl/macro'
+import * as THREE from 'three'
 
 /**
- * For basic introduction to shaders and using it in react-three-fiber, I recommend 
+ * For basic introduction to shaders and using it in react-three-fiber, I recommend
  * https://www.youtube.com/watch?v=kxXaIHi1j4w&ab_channel=WrongAkram
  */
 const LavaMaterial = shaderMaterial(
-    //uniforms
-    {
-        time: 1.0,
-        fogDensity : 0.45,
-        fogColor : new THREE.Vector3(0,0,0),
-        texture1 : new THREE.Texture(),
-        texture2 : new THREE.Texture(),
-        uvScale : new THREE.Vector2(1,1),
-    },
-    //Vertex shader
-    glsl`
+  // uniforms
+  {
+    time: 1.0,
+    fogDensity: 0.45,
+    fogColor: new THREE.Vector3(0, 0, 0),
+    texture1: new THREE.Texture(),
+    texture2: new THREE.Texture(),
+    uvScale: new THREE.Vector2(1, 1)
+  },
+  // Vertex shader
+  glsl`
     uniform vec2 uvScale;
     varying vec2 vUv;
 
@@ -34,8 +33,8 @@ const LavaMaterial = shaderMaterial(
         gl_Position = projectionMatrix * mvPosition;
 
     }`,
-    //fragment shader
-    glsl`
+  // fragment shader
+  glsl`
     uniform float time;
 
     uniform float fogDensity;
@@ -78,9 +77,9 @@ const LavaMaterial = shaderMaterial(
         gl_FragColor = mix( gl_FragColor, vec4( fogColor, gl_FragColor.w ), fogFactor );
 
     }
-`,
-);
+`
+)
 
-extend({LavaMaterial});
+extend({ LavaMaterial })
 
-export default LavaMaterial;
+export default LavaMaterial

@@ -1,3 +1,3 @@
-import ParticleText from "./particleComponent";
+import ParticleText from './particleComponent'
 
-export default ParticleText;
+export default ParticleText

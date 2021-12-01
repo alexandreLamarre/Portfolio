@@ -12,39 +12,40 @@
 
 @layer components {
   .sidebar-icon {
-    @apply relative flex items-center justify-center 
-    h-12 w-12 mt-2 mb-2 ml-0.5
-  bg-gray-400 hover:bg-green-600 
-  text-green-700 hover:text-white
-    hover:rounded-xl rounded-3xl
+    @apply relative flex items-center justify-center
+      h-12 w-12 mt-2 mb-2 ml-0.5
+      bg-gray-400 rounded-3xl shadow-lg
+  text-green-700 cursor-pointer opacity-50
+    
     transition-all duration-300 ease-linear
-    cursor-pointer shadow-lg
-    opacity-50 hover:opacity-100
+     hover:bg-green-600 hover:rounded-xl 
+     hover:opacity-100
+    hover:text-white
   }
 
   .sidebar-text {
     @apply absolute w-auto p-2 m-2 min-w-max left-14 rounded-md shadow-md
-    mb-2
-    text-white bg-gray-900 
-    text-xs font-bold 
+      mb-2
+      text-white bg-gray-900
+    text-xs font-bold
     transition-all duration-100 scale-75 origin-left
     cursor-default select-none;
   }
 
-  .navigation-bar{
+  .navigation-bar {
     @apply fixed top-0 w-screen flex flex-row bg-gray-700
-     items-center justify-evenly h-14 shadow-lg rounded-t-sm
-     rounded-b-xl
+      items-center justify-evenly h-14 shadow-lg rounded-t-sm
+      rounded-b-xl
      opacity-70
      transition-all duration-500 ease-linear
-     hover:opacity-100
+     hover:opacity-100;
   }
 
   .navigation-bar-icon {
     @apply text-gray-500
-    mr-3 ml-4
-    transition duration-300 ease-in-out 
-    hover:text-pink-400 
+      mr-3 ml-4
+      transition duration-300 ease-in-out
+    hover:text-pink-400
     cursor-pointer;
   }
 
@@ -54,52 +55,53 @@
 
   .navigation-text-button {
     @apply rounded-l rounded-r p-1.5
-  bg-gray-400 hover:bg-green-600 
-  text-green-700 hover:text-white 
+      bg-gray-400 hover:bg-green-600
+      text-green-700 hover:text-white
   select-none font-bold;
-
   }
 
-  .title{
-    @apply tracking-wider font-semibold text-opacity-80 
-    cursor-pointer
-    mr-auto ml-10 my-auto 
+  .title {
+    @apply tracking-wider font-semibold text-opacity-80
+      cursor-pointer
+      mr-auto ml-10 my-auto
     text-gray-200
-    text-2xl select-none 
+    text-2xl select-none
+    hover:text-blue-500
     transition duration-300 ease-in-out;
   }
 
   .search {
-    @apply w-1/5 flex items-center justify-start 
-    bg-gray-400 dark:bg-gray-600
-    select-none
+    @apply w-1/5 flex items-center justify-start
+      bg-gray-400 dark:bg-gray-600
+      select-none
     text-green-600
-    px-2 h-9 ml-0 mr-0 
+    px-2 h-9 ml-0 mr-0
     rounded-md shadow-md
     transition duration-300 ease-in-out;
   }
 
   .search-input {
     @apply w-full font-sans font-semibold
-    bg-transparent outline-none 
-    text-gray-500  placeholder-green-600
+      bg-transparent outline-none
+      text-gray-500  placeholder-green-600
     pl-1 rounded;
   }
 
   .action-container {
-    @apply 
-    absolute bottom-6 
-    left-1/2 
-    transform -translate-x-2/4
-    }
+    @apply
+      absolute bottom-12
+      left-1/2
+      transform -translate-x-2/4
+      animate-pulse
+  }
 
   .next-action {
     @apply
-    cursor-default
-    rounded-3xl bg-gray-800
-    text-gray-300 text-center
+      cursor-default
+      rounded-3xl bg-gray-800
+      text-gray-300 text-center
     pl-5 pr-5 pt-2 pb-2
     bg-opacity-90 select-none
-    outline-white
+    outline-white;
   }
 }

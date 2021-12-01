@@ -1,19 +1,19 @@
-import { extend } from "@react-three/fiber";
-import { shaderMaterial } from "@react-three/drei";
-import glsl from "babel-plugin-glsl/macro";
+import { extend } from '@react-three/fiber'
+import { shaderMaterial } from '@react-three/drei'
+import glsl from 'babel-plugin-glsl/macro'
 
 const LavaMaterial2 = shaderMaterial(
-    {
-        time : 1,
-    },
-    //Vertex shader
-    glsl`
+  {
+    time: 1
+  },
+  // Vertex shader
+  glsl`
     void main()
     {
         gl_Position = gl_ProjectionMatrix * gl_ModelViewMatrix * gl_Vertex;
     }`,
-    //Fragment shader
-    glsl`
+  // Fragment shader
+  glsl`
     uniform float time;
     varying vec2 vUv;
 
@@ -131,9 +131,9 @@ const LavaMaterial2 = shaderMaterial(
         // gl_FragColor = vec4( vec3( n, n, n ), 1.0 );
         gl_FragColor = vec4(0.0, 0.0, 200.0, 1.0);
     }
-    `,
-);
+    `
+)
 
-extend({LavaMaterial2});
+extend({ LavaMaterial2 })
 
-export default LavaMaterial2;
+export default LavaMaterial2

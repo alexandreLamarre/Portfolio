@@ -1,3 +1,3 @@
-import NextAction from "./nextAction";
+import NextAction from './nextAction'
 
-export default NextAction;
+export default NextAction

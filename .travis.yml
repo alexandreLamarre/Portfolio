@@ -2,14 +2,14 @@ language: node_js
 
 branches:
   only:
-  - main
-  
+    - main
+
 node_js:
-- "14"
+  - "14"
 
 before_script:
   - npm install
 
 script:
-- npm test
-- npm run build
+  - npm test
+  - npm run build

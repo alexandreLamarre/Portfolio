@@ -42,6 +42,6 @@ void main( void ) {
     gl_FragColor = mix( gl_FragColor, vec4( fogColor, gl_FragColor.w ), fogFactor );
 
 }
-`;
+`
 
-export default fragmentShader;
+export default fragmentShader

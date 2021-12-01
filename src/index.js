@@ -3,22 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { createStore, applyMiddleware } from 'redux';
-import allReducers from './reducer';
 import { Provider } from 'react-redux';
-import thunk from 'redux-thunk';
-
-/**
- * Redux store for our webapp
- * For chrome dev tools installation, please see:
- * https://github.com/zalmoxisus/redux-devtools-extension#installation
- *
- */
-const store = createStore(
-  allReducers,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-  applyMiddleware(thunk)
-);
+import store from './store';
 
 ReactDOM.render(
   <React.StrictMode>

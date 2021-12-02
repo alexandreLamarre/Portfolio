@@ -1,3 +1,5 @@
+import { useSelector } from "react-redux";
+
 /**
  * Text bubble that specifies next action input
  * from user in order to transition further into the portfolio.
@@ -12,10 +14,13 @@
  * @returns
  */
 const NextAction = (props) => {
+
+  const isOpen = useSelector((state) => state.interfaceStack.size);
+
   return (
     <div className='action-container'>
       <span className='next-action'>
-        Scroll down to continue
+        {isOpen === 0 ?'Scroll down to continue':'Press escape to close the interface'}
       </span>
     </div>
 

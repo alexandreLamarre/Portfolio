@@ -17,20 +17,22 @@ import useEventListener from './hooks/useEventListener'
 
 const NEXT_KEY = ['ArrowDown']
 const PREV_KEY = ['ArrowUp']
+const CLOSE_KEY = ['Escape']
 
 function App () {
   const dispatch = useDispatch()
-  const { transitionNext, transitionPrev } = bindActionCreators(actionCreators, dispatch)
+  const { transitionNext, transitionPrev, removeTopInterface } = bindActionCreators(actionCreators, dispatch)
 
   function handleNextKey ({ key }) {
     console.log(key)
     if (NEXT_KEY.includes(String(key))) {
       // transition redux state to next page
-      console.log('transition next')
       transitionNext()
     } else if (PREV_KEY.includes(String(key))) {
       // transition redux state to prev page
       transitionPrev()
+    } else if (CLOSE_KEY.includes(String(key))) {
+      removeTopInterface()
     }
   }
 

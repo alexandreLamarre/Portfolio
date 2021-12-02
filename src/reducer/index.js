@@ -5,9 +5,11 @@
 
 import { combineReducers } from 'redux'
 import pageStateReducer from './pageStateReducer.js'
+import interfaceStackReducer from './interfaceStackReducer.js'
 
 const allReducers = combineReducers({
-  pageState: pageStateReducer
-})
+  pageState: pageStateReducer,
+  interfaceStack: interfaceStackReducer
 
+})
 export default allReducers

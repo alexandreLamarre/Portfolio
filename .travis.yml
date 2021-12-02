@@ -6,6 +6,9 @@ branches:
 
 node_js:
   - "14"
+env:
+  global:
+    - BUILD="true"
 
 before_script:
   - npm install

@@ -10,7 +10,17 @@ import allReducers from '../reducer';
  *
  */
 
-const composedEnhancer = compose(applyMiddleware(thunk), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+const middleware = [thunk];
+
+let composedEnhancer;
+if (process.env.BUILD){
+    composedEnhancer = compose(applyMiddleware(...middleware));
+} else {
+    // dev environment, activate redux dev tools
+    composedEnhancer = compose(applyMiddleware(...middleware), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+}
+
+
 const store = createStore(
     allReducers,
     undefined, 

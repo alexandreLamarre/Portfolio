@@ -7,4 +7,4 @@ import { test } from '@jest/globals'
 
 test('renders learn react link', () => {
   render(<Provider store={store}><App /></Provider>)
-})
+});

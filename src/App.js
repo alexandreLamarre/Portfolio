@@ -15,26 +15,24 @@ import { bindActionCreators } from 'redux'
 import { actionCreators } from './action'
 import useEventListener from './hooks/useEventListener'
 
-const NEXT_KEY = ['ArrowDown'];
-const PREV_KEY = ['ArrowUp'];
-const CLOSE_KEY = ['Escape'];
-
+const NEXT_KEY = ['ArrowDown']
+const PREV_KEY = ['ArrowUp']
+const CLOSE_KEY = ['Escape']
 
 function App () {
-  const dispatch = useDispatch();
-  const {transitionNext, transitionPrev, removeTopInterface} = bindActionCreators(actionCreators, dispatch);
+  const dispatch = useDispatch()
+  const { transitionNext, transitionPrev, removeTopInterface } = bindActionCreators(actionCreators, dispatch)
 
-  function handleNextKey({key}) {
-    console.log(key);
-    if (NEXT_KEY.includes(String(key))){
-      //transition redux state to next page
-      transitionNext();
-    }
-    else if (PREV_KEY.includes(String(key))) {
-      //transition redux state to prev page
-      transitionPrev();
-    } else if (CLOSE_KEY.includes(String(key))){
-      removeTopInterface();
+  function handleNextKey ({ key }) {
+    console.log(key)
+    if (NEXT_KEY.includes(String(key))) {
+      // transition redux state to next page
+      transitionNext()
+    } else if (PREV_KEY.includes(String(key))) {
+      // transition redux state to prev page
+      transitionPrev()
+    } else if (CLOSE_KEY.includes(String(key))) {
+      removeTopInterface()
     }
   }
 

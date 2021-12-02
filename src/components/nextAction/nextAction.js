@@ -1,4 +1,4 @@
-import { useSelector } from "react-redux";
+import { useSelector } from 'react-redux'
 
 /**
  * Text bubble that specifies next action input
@@ -14,13 +14,12 @@ import { useSelector } from "react-redux";
  * @returns
  */
 const NextAction = (props) => {
-
-  const isOpen = useSelector((state) => state.interfaceStack.size);
+  const isOpen = useSelector((state) => state.interfaceStack.size)
 
   return (
     <div className='action-container'>
       <span className='next-action'>
-        {isOpen === 0 ?'Scroll down to continue':'Press escape to close the interface'}
+        {isOpen === 0 ? 'Scroll down to continue' : 'Press escape to close the interface'}
       </span>
     </div>
 

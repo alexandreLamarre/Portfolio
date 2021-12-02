@@ -10,22 +10,18 @@ test('Global variable INTERFACE_STACK', () => {
     const someIndex = Math.floor(n/2);
     INTERFACE_STACK.add(someIndex);
     expect(INTERFACE_STACK.has(someIndex)).toBe(true);
-    INTERFACE_STACK.add(someIndex);
-    INTERFACE_STACK.add(someIndex);
-    INTERFACE_STACK.add(someIndex);
-    INTERFACE_STACK.add(someIndex);
+    for(let i = 0; i < 4; i++){
+        INTERFACE_STACK.add(someIndex);
+    }
     expect(INTERFACE_STACK.size()).toBe(1);
     INTERFACE_STACK.remove(someIndex);
     expect(INTERFACE_STACK.size()).toBe(0);
     expect(INTERFACE_STACK.has(someIndex)).toBe(false);
     expect(INTERFACE_STACK.top()).toBe('');
-    INTERFACE_STACK.remove(someIndex);
-    INTERFACE_STACK.remove(someIndex);
-    INTERFACE_STACK.remove(someIndex);
-    INTERFACE_STACK.remove(someIndex);
-    INTERFACE_STACK.remove(someIndex);
-    INTERFACE_STACK.remove(someIndex);
-    INTERFACE_STACK.remove(someIndex);
+
+    for(let i =0; i < 6; i++){
+        INTERFACE_STACK.remove(someIndex);
+    }
     expect(INTERFACE_STACK.size()).toBe(0);
     expect(INTERFACE_STACK.has(someIndex)).toBe(false);
     expect(INTERFACE_STACK.top()).toBe('');

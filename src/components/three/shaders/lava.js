@@ -1,5 +1,5 @@
 // import { Canvas, extend, useLoader, useThree, useFrame } from '@react-three/fiber'
-import {extend} from '@react-three/fiber'
+import { extend } from '@react-three/fiber'
 // import React, { Suspense, useEffect, useRef, useState, useMemo } from 'react'
 
 import { shaderMaterial } from '@react-three/drei'

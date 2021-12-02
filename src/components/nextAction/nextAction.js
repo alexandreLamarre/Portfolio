@@ -27,4 +27,4 @@ const NextAction = (props) => {
   )
 }
 
-export default NextAction;
+export default NextAction

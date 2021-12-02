@@ -2,6 +2,7 @@ import thunk from 'redux-thunk';
 import { createStore, applyMiddleware, compose } from 'redux';
 import allReducers from '../reducer';
 
+
 /**
  * Redux store for our webapp
  * For chrome dev tools installation, please see:
@@ -16,5 +17,5 @@ const store = createStore(
     composedEnhancer,
 );
 
-export default store;
-  
+
+export default store

@@ -1,6 +1,6 @@
 # Portfolio
 [![MegaLinter](https://github.com/alexandreLamarre/Portfolio/workflows/MegaLinter/badge.svg?branch=main)](https://github.com/alexandreLamarre/Portfolio/actions?query=workflow%3AMegaLinter+branch%3Amain)
-<img src="https://app.travis-ci.com/alexandreLamarre/Portfolio.svg?branch=main"/> 
+<img src="https://app.travis-ci.com/alexandreLamarre/Portfolio.svg?branch=main"/>
 
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 ![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white)

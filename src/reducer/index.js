@@ -10,6 +10,6 @@ import interfaceStackReducer from './interfaceStackReducer.js';
 const allReducers = combineReducers({
   pageState : pageStateReducer,
   interfaceStack : interfaceStackReducer,
-})
 
+})
 export default allReducers;

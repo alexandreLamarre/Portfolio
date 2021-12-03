@@ -25,3 +25,5 @@ yarn-error.log*
 # project specific ignores
 .env
 report
+.idea
+.vscode

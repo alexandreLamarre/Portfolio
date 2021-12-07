@@ -104,4 +104,21 @@
     bg-opacity-90 select-none
     outline-white;
   }
+
+  .scroller-progress{
+    @apply  
+    absolute bottom-0 right-0
+    w-48 h-24
+  }
+
+  .about-interface{
+    @apply
+    fixed top-56 left-1/2
+    transform -translate-x-2/4
+    bg-black
+  }
+
+  .resume-interface{
+
+  }
 }

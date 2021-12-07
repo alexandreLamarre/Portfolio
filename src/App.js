@@ -3,6 +3,8 @@ import TopNavigation from './components/navigation'
 import SiderBar from './components/sidebar'
 import GridScene from './components/three/gridNoise'
 import NextAction from './components/nextAction'
+import TransitionScroller from './components/transitionScroller';
+import { AboutInterface, ResumeInterface } from './components/interfaces'
 // import ThreeScene from './components/three/threescene';
 // import LavaScene from './components/three/lava/lavaComponent';
 // import ShaderIcosahedron from './components/3d/shaderIcosahedron';
@@ -14,18 +16,18 @@ import { useDispatch } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { actionCreators } from './action'
 import useEventListener from './hooks/useEventListener'
-
+import scrollerProgress from './lib/scrollerProgress'
 const NEXT_KEY = ['ArrowDown'];
 const PREV_KEY = ['ArrowUp'];
 const CLOSE_KEY = ['Escape'];
 
+let cur = 0;
 
 function App () {
   const dispatch = useDispatch();
   const {transitionNext, transitionPrev, removeTopInterface} = bindActionCreators(actionCreators, dispatch);
 
   function handleNextKey({key}) {
-    console.log(key);
     if (NEXT_KEY.includes(String(key))){
       //transition redux state to next page
       transitionNext();
@@ -38,14 +40,26 @@ function App () {
     }
   }
 
-  useEventListener('keydown', handleNextKey)
+  function handleScroll(e){
+    if(e.wheelDeltaY < 0){
+      const old = cur;
+      cur = scrollerProgress(cur);
+      console.log(old, " -> ", cur);
+    }
+  }
+
+  useEventListener('keydown', handleNextKey);
+  useEventListener('wheel', handleScroll );
 
   return (
-    <div className='App' onKeyDown={(e) => console.log(e)}>
+    <div className='App'>
       <GridScene />
       <SiderBar />
-      <TopNavigation />
+      <TopNavigation/>
+      <AboutInterface/>
+      <ResumeInterface/>
       <NextAction />
+      <TransitionScroller/>
       {/* } <MainTitle/> {/**
       <RegularPolytope/> */}
       {/* <SceneWrapper/> */}

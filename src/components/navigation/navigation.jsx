@@ -80,7 +80,6 @@ function Search(){
  */
 function Resume ({iid}){
     const isOpen = useSelector((state) => state.interfaceStack).top.has(iid);
-    console.log('resume is open?', isOpen);
     const dispatch = useDispatch();
     const {removeInterfaceStack, addInterfaceStack} = bindActionCreators(actionCreators, dispatch);
 
@@ -98,7 +97,6 @@ function Resume ({iid}){
  */
 function About({iid}){
     const isOpen = useSelector((state) => state.interfaceStack).top.has(iid);
-    console.log('about is open?', isOpen);
     const dispatch = useDispatch();
     const {removeInterfaceStack, addInterfaceStack} = bindActionCreators(actionCreators, dispatch);
 

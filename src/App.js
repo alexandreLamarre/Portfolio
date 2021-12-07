@@ -17,26 +17,28 @@ import { bindActionCreators } from 'redux'
 import { actionCreators } from './action'
 import useEventListener from './hooks/useEventListener'
 import scrollerProgress from './lib/scrollerProgress'
-const NEXT_KEY = ['ArrowDown'];
-const PREV_KEY = ['ArrowUp'];
-const CLOSE_KEY = ['Escape'];
 
-let cur = 0;
+let cur = 10;
+const NEXT_KEY = ['ArrowDown']
+const PREV_KEY = ['ArrowUp']
+const CLOSE_KEY = ['Escape']
+
 
 function App () {
-  const dispatch = useDispatch();
-  const {transitionNext, transitionPrev, removeTopInterface} = bindActionCreators(actionCreators, dispatch);
+  const dispatch = useDispatch()
+  const { transitionNext, transitionPrev, removeTopInterface } = bindActionCreators(actionCreators, dispatch)
 
-  function handleNextKey({key}) {
-    if (NEXT_KEY.includes(String(key))){
-      //transition redux state to next page
-      transitionNext();
-    }
-    else if (PREV_KEY.includes(String(key))) {
-      //transition redux state to prev page
-      transitionPrev();
-    } else if (CLOSE_KEY.includes(String(key))){
-      removeTopInterface();
+
+  function handleNextKey ({ key }) {
+    console.log(key)
+    if (NEXT_KEY.includes(String(key))) {
+      // transition redux state to next page
+      transitionNext()
+    } else if (PREV_KEY.includes(String(key))) {
+      // transition redux state to prev page
+      transitionPrev()
+    } else if (CLOSE_KEY.includes(String(key))) {
+      removeTopInterface()
     }
   }
 

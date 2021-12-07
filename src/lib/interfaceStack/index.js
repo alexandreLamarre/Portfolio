@@ -1,3 +1,3 @@
-import INTERFACE_STACK from "./interfaceStack";
+import INTERFACE_STACK from './interfaceStack'
 
-export default INTERFACE_STACK;
+export default INTERFACE_STACK

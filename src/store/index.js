@@ -1,7 +1,6 @@
-import thunk from 'redux-thunk';
-import { createStore, applyMiddleware, compose } from 'redux';
-import allReducers from '../reducer';
-
+import thunk from 'redux-thunk'
+import { createStore, applyMiddleware, compose } from 'redux'
+import allReducers from '../reducer'
 
 /**
  * Redux store for our webapp
@@ -10,22 +9,20 @@ import allReducers from '../reducer';
  *
  */
 
-const middleware = [thunk];
+const middleware = [thunk]
 
-let composedEnhancer;
-if (process.env.BUILD){
-    composedEnhancer = compose(applyMiddleware(...middleware));
+let composedEnhancer
+if (process.env.BUILD) {
+  composedEnhancer = compose(applyMiddleware(...middleware))
 } else {
-    // dev environment, activate redux dev tools
-    composedEnhancer = compose(applyMiddleware(...middleware), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+  // dev environment, activate redux dev tools
+  composedEnhancer = compose(applyMiddleware(...middleware), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 }
 
-
 const store = createStore(
-    allReducers,
-    undefined, 
-    composedEnhancer,
-);
-
+  allReducers,
+  undefined,
+  composedEnhancer
+)
 
 export default store
